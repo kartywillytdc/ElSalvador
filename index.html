@@ -17,16 +17,14 @@
             --dark: #1a1a2e;
             --light: #f5f5f5;
             --accent: #e74c3c;
-            --ios-blue: #007AFF;
-            --ios-gray: #F2F2F7;
-            --ios-border: #E5E5EA;
+            --purple: #667eea;
+            --purple-dark: #764ba2;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow-x: hidden;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-font-smoothing: antialiased;
         }
 
         /* Header */
@@ -35,12 +33,11 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border-bottom: 1px solid var(--ios-border);
+            background: rgba(10, 10, 15, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 5px 40px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
         }
 
         nav {
@@ -53,23 +50,13 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--primary);
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--secondary);
             display: flex;
             align-items: center;
             gap: 10px;
-            letter-spacing: -0.5px;
-        }
-
-        .logo-icon {
-            font-size: 2rem;
-            animation: rotate 3s linear infinite;
-        }
-
-        @keyframes rotate {
-            0%, 100% { transform: rotate(0deg); }
-            50% { transform: rotate(10deg); }
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
         }
 
         .nav-links {
@@ -79,59 +66,82 @@
         }
 
         .nav-links a {
-            color: #333;
+            color: white;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
             font-weight: 500;
             position: relative;
-            font-size: 0.95rem;
+            padding: 8px 15px;
+            border-radius: 8px;
         }
 
-        .nav-links a::after {
+        .nav-links a::before {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 50%;
-            transform: translateX(-50%);
             width: 0;
             height: 2px;
-            background: var(--ios-blue);
-            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(90deg, var(--purple), var(--purple-dark));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
         }
 
         .nav-links a:hover {
-            color: var(--ios-blue);
+            color: var(--secondary);
+            background: rgba(102, 126, 234, 0.1);
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
+        .nav-links a:hover::before {
+            width: 80%;
         }
 
         .admin-btn {
-            background: var(--ios-blue);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 10px 24px;
-            border-radius: 12px;
-            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            border: 2px solid rgba(102, 126, 234, 0.3);
             cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-size: 0.9rem;
-            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+            font-weight: bold;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 25px rgba(102, 126, 234, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .admin-btn::before {
+            content: '🔐';
+            margin-right: 8px;
+        }
+
+        .admin-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .admin-btn:hover::after {
+            width: 300px;
+            height: 300px;
         }
 
         .admin-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 122, 255, 0.4);
-        }
-
-        .admin-btn:active {
-            transform: translateY(0);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(102, 126, 234, 0.6);
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -149,30 +159,25 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(0, 71, 171, 0.85), rgba(231, 76, 60, 0.65));
+            background: linear-gradient(135deg, rgba(0, 71, 171, 0.8), rgba(231, 76, 60, 0.6));
             z-index: 1;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .flag-container {
-            perspective: 1000px;
-            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease;
         }
 
         .flag {
-            width: 320px;
-            height: 213px;
-            margin: 0 auto;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            border-radius: 16px;
+            width: 300px;
+            height: 200px;
+            margin: 0 auto 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
             overflow: hidden;
-            animation: float 4s ease-in-out infinite;
-            transform-style: preserve-3d;
+            animation: float 3s ease-in-out infinite;
+            border: 3px solid rgba(255, 255, 255, 0.2);
         }
 
         .flag-stripe {
@@ -192,38 +197,33 @@
         }
 
         .emblem {
-            width: 90px;
-            height: 90px;
+            width: 80px;
+            height: 80px;
             background: linear-gradient(135deg, #FFD700, #FFA500);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
+            font-weight: bold;
             color: #0047AB;
-            font-size: 0.85rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            animation: pulse 2s ease-in-out infinite;
+            font-size: 0.9rem;
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
         }
 
         .hero h1 {
-            font-size: 4.5rem;
+            font-size: 4rem;
             margin-bottom: 1rem;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            font-weight: 700;
-            letter-spacing: -2px;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
         }
 
         .hero p {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             margin-bottom: 2rem;
-            opacity: 0.95;
-            font-weight: 400;
         }
 
         /* Section Styles */
         section {
-            padding: 120px 5%;
+            padding: 100px 5%;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -231,143 +231,75 @@
         .section-title {
             text-align: center;
             font-size: 3rem;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
             color: white;
-            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
             animation: fadeIn 1s ease;
-            font-weight: 700;
-            letter-spacing: -1px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .section-icon {
-            font-size: 3.5rem;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
         }
 
         /* About Section */
         .about-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
         .about-card {
-            background: rgba(255, 255, 255, 0.98);
-            padding: 2.5rem;
-            border-radius: 24px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
             animation: slideInUp 0.8s ease;
-            border: 1px solid var(--ios-border);
         }
 
         .about-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-        }
-
-        .about-card-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            display: inline-block;
-            animation: float 3s ease-in-out infinite;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
         .about-card h3 {
             color: var(--primary);
             margin-bottom: 1rem;
-            font-size: 1.6rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            font-size: 1.5rem;
         }
 
         .about-card p {
             color: #555;
             line-height: 1.8;
-            font-size: 1rem;
         }
 
         /* Food Section */
         .food-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 3rem;
             margin-top: 3rem;
         }
 
         .food-card {
             background: white;
-            border-radius: 24px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease;
             animation: zoomIn 0.8s ease;
-            border: 1px solid var(--ios-border);
-            position: relative;
         }
 
         .food-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
-        }
-
-        .food-image-container {
-            position: relative;
-            overflow: hidden;
-            height: 280px;
-            background: var(--ios-gray);
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
         }
 
         .food-image {
             width: 100%;
-            height: 100%;
+            height: 250px;
             object-fit: cover;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s ease;
         }
 
         .food-card:hover .food-image {
-            transform: scale(1.08);
-        }
-
-        .edit-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .edit-btn {
-            background: white;
-            color: var(--ios-blue);
-            padding: 12px 24px;
-            border-radius: 12px;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .edit-btn:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         .food-content {
@@ -378,37 +310,32 @@
             color: var(--primary);
             margin-bottom: 1rem;
             font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
         }
 
         .food-content p {
             color: #666;
-            line-height: 1.7;
-            font-size: 1rem;
+            line-height: 1.6;
         }
 
         /* Special Food Highlight */
         .special-food {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: 3px solid var(--secondary);
+            border: 5px solid var(--secondary);
             position: relative;
             overflow: visible;
-            grid-column: span 1;
         }
 
         .special-badge {
             position: absolute;
-            top: -12px;
-            right: -12px;
+            top: -15px;
+            right: -15px;
             background: var(--accent);
             color: white;
-            padding: 12px 24px;
-            border-radius: 20px;
-            font-weight: 700;
-            box-shadow: 0 8px 24px rgba(231, 76, 60, 0.5);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 5px 20px rgba(231, 76, 60, 0.5);
             animation: pulse 2s infinite;
-            font-size: 0.95rem;
             z-index: 10;
         }
 
@@ -418,10 +345,6 @@
 
         .special-food .food-content h3 {
             color: var(--secondary);
-        }
-
-        .special-food .food-content p {
-            color: rgba(255, 255, 255, 0.95);
         }
 
         /* Media Section */
@@ -434,36 +357,29 @@
         }
 
         .media-btn {
-            padding: 20px 48px;
+            padding: 20px 40px;
             font-size: 1.2rem;
             border: none;
-            border-radius: 16px;
+            border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-weight: 700;
+            transition: all 0.3s ease;
+            font-weight: bold;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            display: flex;
-            align-items: center;
-            gap: 12px;
         }
 
         .slide-btn {
-            background: linear-gradient(135deg, #FF6B6B, #FFE66D);
+            background: linear-gradient(45deg, #FF6B6B, #FFE66D);
             color: #333;
         }
 
         .video-btn {
-            background: linear-gradient(135deg, #FF0000, #CC0000);
+            background: linear-gradient(45deg, #FF0000, #CC0000);
             color: white;
         }
 
         .media-btn:hover {
-            transform: translateY(-6px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-        }
-
-        .media-btn:active {
-            transform: translateY(-2px);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
 
         /* Modal */
@@ -475,8 +391,7 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.95);
             animation: fadeIn 0.3s ease;
         }
 
@@ -486,35 +401,35 @@
             width: 90%;
             max-width: 1200px;
             background: white;
-            border-radius: 24px;
+            border-radius: 20px;
             overflow: hidden;
-            animation: slideInDown 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4);
+            animation: slideInDown 0.5s ease;
         }
 
         .close {
             position: absolute;
             top: 20px;
-            right: 20px;
-            font-size: 32px;
-            font-weight: 300;
+            right: 30px;
+            font-size: 40px;
+            font-weight: bold;
             color: white;
             cursor: pointer;
             z-index: 2001;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px);
-            width: 48px;
-            height: 48px;
+            background: rgba(231, 76, 60, 0.9);
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         .close:hover {
             background: var(--accent);
             transform: rotate(90deg) scale(1.1);
+            box-shadow: 0 0 30px rgba(231, 76, 60, 0.8);
         }
 
         .modal iframe {
@@ -523,134 +438,348 @@
             border: none;
         }
 
-        /* Login Modal */
+        /* Login Modal - Tema Futurista Premium */
         .login-form {
-            background: white;
-            padding: 3rem;
-            border-radius: 24px;
-            max-width: 440px;
+            background: linear-gradient(145deg, #0a0a0f 0%, #1a0a2e 50%, #16001e 100%);
+            padding: 3.5rem;
+            border-radius: 30px;
+            max-width: 480px;
             width: 90%;
-            margin: 10% auto;
-            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.3);
-            animation: zoomIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            margin: 8% auto;
+            box-shadow: 0 30px 90px rgba(102, 126, 234, 0.5), 
+                        0 0 120px rgba(118, 75, 162, 0.4),
+                        inset 0 0 60px rgba(102, 126, 234, 0.1);
+            animation: zoomIn 0.5s ease;
+            border: 2px solid rgba(102, 126, 234, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-form::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.15) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .login-form::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.15), transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .login-form:hover::after {
+            opacity: 1;
+        }
+
+        .login-icon {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .login-icon-circle {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            box-shadow: 0 15px 50px rgba(102, 126, 234, 0.6),
+                        0 0 80px rgba(118, 75, 162, 0.4);
+            animation: float 3s ease-in-out infinite;
+            border: 4px solid rgba(255, 255, 255, 0.15);
+            position: relative;
+        }
+
+        .login-icon-circle::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            background: linear-gradient(45deg, #667eea, #764ba2, #667eea);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            animation: rotate 4s linear infinite;
+        }
+
+        .login-icon-circle:hover::before {
+            opacity: 1;
         }
 
         .login-form h2 {
-            color: var(--primary);
-            margin-bottom: 2rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
             text-align: center;
+            font-size: 2.2rem;
+            text-shadow: 0 0 25px rgba(102, 126, 234, 0.9);
+            position: relative;
+            z-index: 1;
             font-weight: 700;
-            letter-spacing: -0.5px;
+            letter-spacing: 1px;
+        }
+
+        .login-subtitle {
+            text-align: center;
+            color: rgba(102, 126, 234, 0.9);
+            font-size: 0.95rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            z-index: 1;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
-            color: #333;
+            margin-bottom: 0.8rem;
+            color: rgba(255, 255, 255, 0.95);
             font-weight: 600;
             font-size: 0.95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .form-group input {
             width: 100%;
-            padding: 14px 16px;
-            border: 2px solid var(--ios-border);
-            border-radius: 12px;
+            padding: 18px 22px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            border-radius: 15px;
             font-size: 1rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            background: var(--ios-gray);
+            color: #fff;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
         }
 
         .form-group input:focus {
             outline: none;
-            border-color: var(--ios-blue);
-            background: white;
-            box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.1);
+            border-color: #667eea;
+            background: rgba(102, 126, 234, 0.12);
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.5),
+                        inset 0 0 20px rgba(102, 126, 234, 0.15);
+            transform: translateY(-2px);
         }
 
         .login-btn {
             width: 100%;
-            padding: 16px;
-            background: var(--ios-blue);
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            border-radius: 12px;
-            font-size: 1.05rem;
-            font-weight: 700;
+            border-radius: 15px;
+            font-size: 1.15rem;
+            font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .login-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .login-btn:hover::before {
+            width: 400px;
+            height: 400px;
         }
 
         .login-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 28px rgba(0, 122, 255, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 18px 50px rgba(102, 126, 234, 0.7),
+                        0 0 80px rgba(118, 75, 162, 0.5);
         }
 
         .login-btn:active {
-            transform: translateY(0);
+            transform: translateY(-2px);
         }
 
+        /* Admin Panel - Tema Futurista Premium */
         .admin-panel {
             display: none;
-            background: white;
-            padding: 3rem;
-            border-radius: 24px;
+            background: linear-gradient(145deg, #0a0a0f 0%, #1a0a2e 50%, #16001e 100%);
+            padding: 3.5rem;
+            border-radius: 30px;
             max-width: 700px;
             width: 90%;
             margin: 5% auto;
-            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.3);
-            max-height: 80vh;
-            overflow-y: auto;
+            box-shadow: 0 30px 90px rgba(102, 126, 234, 0.5), 
+                        0 0 120px rgba(118, 75, 162, 0.4),
+                        inset 0 0 60px rgba(102, 126, 234, 0.1);
+            border: 2px solid rgba(102, 126, 234, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .admin-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(102, 126, 234, 0.2) 0%, transparent 70%);
+            z-index: 0;
         }
 
         .admin-panel h2 {
-            color: var(--primary);
-            margin-bottom: 2rem;
+            color: #fff;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            font-size: 2.4rem;
+            text-shadow: 0 0 25px rgba(102, 126, 234, 0.9);
+            position: relative;
+            z-index: 1;
             font-weight: 700;
-            letter-spacing: -0.5px;
+            letter-spacing: 1px;
         }
 
         .admin-section {
-            background: var(--ios-gray);
-            padding: 1.5rem;
-            border-radius: 16px;
-            margin-bottom: 1.5rem;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            border: 2px solid rgba(102, 126, 234, 0.25);
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
         }
 
-        .admin-section h3 {
-            color: #333;
+        .admin-section:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .admin-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(180deg, #667eea, #764ba2);
+            border-radius: 20px 0 0 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .admin-section:hover::before {
+            opacity: 1;
+        }
+
+        .section-icon {
+            font-size: 2rem;
             margin-bottom: 1rem;
-            font-size: 1.2rem;
-            font-weight: 600;
+            display: block;
         }
 
         .logout-btn {
-            background: var(--accent);
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
             color: white;
-            padding: 12px 24px;
+            padding: 18px 35px;
             border: none;
-            border-radius: 12px;
+            border-radius: 15px;
             cursor: pointer;
-            font-weight: 700;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: bold;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.5);
+            position: relative;
+            z-index: 1;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.05rem;
         }
 
         .logout-btn:hover {
-            background: #c0392b;
-            transform: translateY(-2px);
+            background: linear-gradient(135deg, #c0392b, #a93226);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(231, 76, 60, 0.7);
+        }
+
+        .success-message {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            padding: 18px;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            display: none;
+            box-shadow: 0 8px 25px rgba(46, 204, 113, 0.5);
+            position: relative;
+            z-index: 1;
+            font-weight: 600;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .error-message {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 18px;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            display: none;
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.5);
+            position: relative;
+            z-index: 1;
+            animation: shake 0.5s ease;
+            font-weight: 600;
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
         /* Footer */
         footer {
-            background: rgba(26, 26, 46, 0.95);
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 100%);
             color: white;
             text-align: center;
             padding: 3rem 2rem;
-            backdrop-filter: blur(10px);
+            border-top: 2px solid rgba(102, 126, 234, 0.3);
         }
 
         footer p {
@@ -667,7 +796,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(40px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -678,7 +807,7 @@
         @keyframes slideInUp {
             from {
                 opacity: 0;
-                transform: translateY(60px);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
@@ -689,7 +818,7 @@
         @keyframes slideInDown {
             from {
                 opacity: 0;
-                transform: translateY(-60px);
+                transform: translateY(-50px);
             }
             to {
                 opacity: 1;
@@ -700,7 +829,7 @@
         @keyframes zoomIn {
             from {
                 opacity: 0;
-                transform: scale(0.85);
+                transform: scale(0.8);
             }
             to {
                 opacity: 1;
@@ -710,12 +839,23 @@
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+            50% { transform: translateY(-20px); }
         }
 
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.08); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
         }
 
         /* Responsive */
@@ -725,87 +865,25 @@
             }
 
             .hero h1 {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
             }
 
             .section-title {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
 
             .flag {
-                width: 240px;
-                height: 160px;
+                width: 200px;
+                height: 133px;
             }
 
-            .food-grid {
-                grid-template-columns: 1fr;
+            .login-form, .admin-panel {
+                padding: 2rem;
             }
-        }
 
-        .success-message {
-            background: #34C759;
-            color: white;
-            padding: 16px;
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            text-align: center;
-            display: none;
-            font-weight: 600;
-        }
-
-        .error-message {
-            background: #FF3B30;
-            color: white;
-            padding: 16px;
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            text-align: center;
-            display: none;
-            font-weight: 600;
-        }
-
-        /* Image Upload */
-        .image-upload {
-            margin-top: 1rem;
-        }
-
-        .image-upload input[type="file"] {
-            display: none;
-        }
-
-        .upload-btn {
-            background: var(--ios-blue);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 12px;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-block;
-            margin-top: 8px;
-        }
-
-        .upload-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 122, 255, 0.4);
-        }
-
-        /* Loading Spinner */
-        .spinner {
-            border: 3px solid var(--ios-gray);
-            border-top: 3px solid var(--ios-blue);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-            display: none;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            .login-form h2, .admin-panel h2 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
@@ -813,31 +891,26 @@
     <!-- Header -->
     <header>
         <nav>
-            <div class="logo">
-                <span class="logo-icon">🇸🇻</span>
-                El Salvador
-            </div>
+            <div class="logo">🇸🇻 El Salvador</div>
             <ul class="nav-links">
                 <li><a href="#home">Início</a></li>
                 <li><a href="#about">Sobre</a></li>
                 <li><a href="#food">Gastronomia</a></li>
                 <li><a href="#media">Mídia</a></li>
             </ul>
-            <button class="admin-btn" onclick="openLoginModal()">👤 Admin</button>
+            <button class="admin-btn" onclick="openLoginModal()">Admin</button>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <div class="flag-container">
-                <div class="flag">
-                    <div class="flag-stripe blue"></div>
-                    <div class="flag-stripe white">
-                        <div class="emblem">El Salvador</div>
-                    </div>
-                    <div class="flag-stripe blue"></div>
+            <div class="flag">
+                <div class="flag-stripe blue"></div>
+                <div class="flag-stripe white">
+                    <div class="emblem">El Salvador</div>
                 </div>
+                <div class="flag-stripe blue"></div>
             </div>
             <h1>El Salvador</h1>
             <p>Descubra a beleza e os sabores deste país incrível</p>
@@ -846,39 +919,30 @@
 
     <!-- About Section -->
     <section id="about">
-        <h2 class="section-title">
-            <span class="section-icon">📖</span>
-            Sobre El Salvador
-        </h2>
+        <h2 class="section-title">Sobre El Salvador</h2>
         <div class="about-grid">
             <div class="about-card">
-                <div class="about-card-icon">🌍</div>
-                <h3>Geografia</h3>
+                <h3>🌎 Geografia</h3>
                 <p>El Salvador é o menor país da América Central, localizado entre Guatemala e Honduras. Possui lindas praias no Oceano Pacífico e impressionantes vulcões. É conhecido como a "Terra dos Vulcões" com mais de 20 vulcões em seu território.</p>
             </div>
             <div class="about-card">
-                <div class="about-card-icon">🏛️</div>
-                <h3>História</h3>
+                <h3>🏛️ História</h3>
                 <p>Com rica herança maia, El Salvador conquistou sua independência da Espanha em 1821. O país possui importantes sítios arqueológicos como Joya de Cerén, a "Pompeia das Américas", preservada por cinzas vulcânicas.</p>
             </div>
             <div class="about-card">
-                <div class="about-card-icon">💃</div>
-                <h3>Cultura</h3>
+                <h3>👥 Cultura</h3>
                 <p>A cultura salvadorenha é uma vibrante mistura de tradições indígenas e espanholas. O país é famoso por seu artesanato colorido, música tradicional e festivais religiosos que celebram santos padroeiros em cada cidade.</p>
             </div>
             <div class="about-card">
-                <div class="about-card-icon">💰</div>
-                <h3>Economia</h3>
+                <h3>💰 Economia</h3>
                 <p>El Salvador adotou o dólar americano como moeda oficial em 2001 e, mais recentemente, tornou-se o primeiro país a adotar o Bitcoin como moeda legal. A economia baseia-se em agricultura, manufatura e remessas.</p>
             </div>
             <div class="about-card">
-                <div class="about-card-icon">🌳</div>
-                <h3>Natureza</h3>
+                <h3>🌳 Natureza</h3>
                 <p>O país oferece paisagens diversificadas: praias de surfe de classe mundial, lagos crateras vulcânicas, florestas nubladas e parques nacionais. O Lago Coatepeque é considerado um dos lagos mais bonitos do mundo.</p>
             </div>
             <div class="about-card">
-                <div class="about-card-icon">🎨</div>
-                <h3>Arte e Tradição</h3>
+                <h3>🎨 Arte e Tradição</h3>
                 <p>El Salvador tem uma rica tradição artística, incluindo cerâmica indígena, tecelagem, e arte moderna. A cidade de La Palma é famosa por suas coloridas pinturas folclóricas que retratam a vida rural salvadorenha.</p>
             </div>
         </div>
@@ -886,123 +950,54 @@
 
     <!-- Food Section -->
     <section id="food">
-        <h2 class="section-title">
-            <span class="section-icon">🍽️</span>
-            Gastronomia Salvadorenha
-        </h2>
-        
-        <!-- Special Food - Nossa Comida -->
-        <div style="margin-bottom: 4rem;">
-            <h3 style="color: white; text-align: center; font-size: 2rem; margin-bottom: 2rem; font-weight: 700;">⭐ Comida do Nosso Grupo ⭐</h3>
-            <div style="max-width: 600px; margin: 0 auto;">
-                <div class="food-card special-food" data-food-id="yuca-frita">
-                    <span class="special-badge">Nosso Grupo! 🌟</span>
-                    <div class="food-image-container">
-                        <img src="https://images.unsplash.com/photo-1633874508218-8c3e43e04b9b?w=500&h=300&fit=crop" alt="Yuca Frita" class="food-image" id="img-yuca-frita">
-                        <div class="edit-overlay" id="overlay-yuca-frita">
-                            <button class="edit-btn" onclick="triggerFileInput('yuca-frita')">
-                                <span>✏️</span> Editar Imagem
-                            </button>
-                        </div>
-                    </div>
-                    <div class="food-content">
-                        <h3>Yuca Frita (Mandioca Frita)</h3>
-                        <p><strong>Esta é a comida típica que nosso grupo irá preparar!</strong> A yuca frita é um acompanhamento muito popular em El Salvador. A mandioca é cozida até ficar macia, depois cortada em palitos e frita até dourar e ficar crocante por fora. Geralmente servida com curtido (salada de repolho fermentado), molho de tomate picante e chicharrón (torresmo). É extremamente saborosa, crocante por fora e macia por dentro, sendo uma delícia da culinária salvadorenha!</p>
-                        </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Other Foods -->
-        <h3 style="color: white; text-align: center; font-size: 1.8rem; margin-bottom: 2rem; font-weight: 700;">Outras Comidas Típicas</h3>
+        <h2 class="section-title">Gastronomia Salvadorenha</h2>
         <div class="food-grid">
-            <div class="food-card" data-food-id="pupusas">
-                <div class="food-image-container">
-                    <img src="https://images.unsplash.com/photo-1626200419199-391ae4be7a41?w=500&h=300&fit=crop" alt="Pupusas" class="food-image" id="img-pupusas">
-                    <div class="edit-overlay" id="overlay-pupusas">
-                        <button class="edit-btn" onclick="triggerFileInput('pupusas')">
-                            <span>✏️</span> Editar Imagem
-                        </button>
-                    </div>
-                </div>
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1626200419199-391ae4be7a41?w=500&h=300&fit=crop" alt="Pupusas" class="food-image">
                 <div class="food-content">
-                    <h3>🫓 Pupusas</h3>
+                    <h3>Pupusas</h3>
                     <p>O prato nacional de El Salvador! Tortilhas grossas de milho ou arroz recheadas com queijo, feijão, chicharrón (carne de porco) ou loroco (flor comestível). Servidas com curtido (repolho fermentado) e molho de tomate.</p>
                 </div>
             </div>
 
-            <div class="food-card" data-food-id="sopa-pata">
-                <div class="food-image-container">
-                    <img src="https://images.unsplash.com/photo-1562158147-f6f17f98b90c?w=500&h=300&fit=crop" alt="Sopa de Pata" class="food-image" id="img-sopa-pata">
-                    <div class="edit-overlay" id="overlay-sopa-pata">
-                        <button class="edit-btn" onclick="triggerFileInput('sopa-pata')">
-                            <span>✏️</span> Editar Imagem
-                        </button>
-                    </div>
-                </div>
+            <div class="food-card special-food">
+                <span class="special-badge">Nosso Grupo! 🌟</span>
+                <img src="https://images.unsplash.com/photo-1633874508218-8c3e43e04b9b?w=500&h=300&fit=crop" alt="Mandioca Frita" class="food-image">
                 <div class="food-content">
-                    <h3>🍲 Sopa de Pata</h3>
+                    <h3>Yuca Frita (Mandioca Frita)</h3>
+                    <p><strong>Esta é a comida típica que nosso grupo irá preparar!</strong> A yuca frita é um acompanhamento muito popular em El Salvador. A mandioca é cozida até ficar macia, depois cortada em palitos e frita até dourar e ficar crocante por fora. Geralmente servida com curtido (salada de repolho fermentado), molho de tomate picante e chicharrón (torresmo). É extremamente saborosa, crocante por fora e macia por dentro, sendo uma delícia da culinária salvadorenha!</p>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1562158147-f6f17f98b90c?w=500&h=300&fit=crop" alt="Sopa de Pata" class="food-image">
+                <div class="food-content">
+                    <h3>Sopa de Pata</h3>
                     <p>Uma sopa tradicional e substanciosa feita com patas de vaca, milho, banana-da-terra, mandioca e vegetais. Temperada com especiarias locais, é um prato reconfortante muito apreciado em ocasiões especiais.</p>
                 </div>
             </div>
 
-            <div class="food-card" data-food-id="tamales">
-                <div class="food-image-container">
-                    <img src="https://images.unsplash.com/photo-1599974672063-a4d00c87ad8a?w=500&h=300&fit=crop" alt="Tamales" class="food-image" id="img-tamales">
-                    <div class="edit-overlay" id="overlay-tamales">
-                        <button class="edit-btn" onclick="triggerFileInput('tamales')">
-                            <span>✏️</span> Editar Imagem
-                        </button>
-                    </div>
-                </div>
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1599974672063-a4d00c87ad8a?w=500&h=300&fit=crop" alt="Tamales" class="food-image">
                 <div class="food-content">
-                    <h3>🌽 Tamales</h3>
+                    <h3>Tamales</h3>
                     <p>Massa de milho recheada com carne de porco ou frango, azeitonas, pimentão e passas, envolta em folhas de bananeira. Os tamales salvadorenhos têm sabor único com temperos locais e são tradicionais em celebrações.</p>
                 </div>
             </div>
 
-            <div class="food-card" data-food-id="atol-elote">
-                <div class="food-image-container">
-                    <img src="https://images.unsplash.com/photo-1618164436241-4473940d1f5c?w=500&h=300&fit=crop" alt="Atol de Elote" class="food-image" id="img-atol-elote">
-                    <div class="edit-overlay" id="overlay-atol-elote">
-                        <button class="edit-btn" onclick="triggerFileInput('atol-elote')">
-                            <span>✏️</span> Editar Imagem
-                        </button>
-                    </div>
-                </div>
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1618164436241-4473940d1f5c?w=500&h=300&fit=crop" alt="Atol de Elote" class="food-image">
                 <div class="food-content">
-                    <h3>☕ Atol de Elote</h3>
+                    <h3>Atol de Elote</h3>
                     <p>Bebida quente e cremosa feita de milho fresco, leite, açúcar e canela. É tradicionalmente servida em ocasiões especiais e tem um sabor doce e reconfortante que remete à infância dos salvadorenhos.</p>
                 </div>
             </div>
 
-            <div class="food-card" data-food-id="quesadilla">
-                <div class="food-image-container">
-                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=500&h=300&fit=crop" alt="Quesadilla" class="food-image" id="img-quesadilla">
-                    <div class="edit-overlay" id="overlay-quesadilla">
-                        <button class="edit-btn" onclick="triggerFileInput('quesadilla')">
-                            <span>✏️</span> Editar Imagem
-                        </button>
-                    </div>
-                </div>
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=500&h=300&fit=crop" alt="Quesadilla" class="food-image">
                 <div class="food-content">
-                    <h3>🧀 Quesadilla Salvadorenha</h3>
+                    <h3>Quesadilla Salvadorenha</h3>
                     <p>Diferente da versão mexicana, é um doce em forma de bolo feito com queijo, farinha de arroz, creme e sementes de gergelim. Tem textura macia e sabor levemente adocicado, perfeita para o café da tarde.</p>
-                </div>
-            </div>
-
-            <div class="food-card" data-food-id="empanadas">
-                <div class="food-image-container">
-                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&h=300&fit=crop" alt="Empanadas" class="food-image" id="img-empanadas">
-                    <div class="edit-overlay" id="overlay-empanadas">
-                        <button class="edit-btn" onclick="triggerFileInput('empanadas')">
-                            <span>✏️</span> Editar Imagem
-                        </button>
-                    </div>
-                </div>
-                <div class="food-content">
-                    <h3>🥟 Empanadas de Leche</h3>
-                    <p>Deliciosas empanadas doces recheadas com creme de leite adocicado, polvilhadas com açúcar. São perfeitas como sobremesa ou lanche da tarde, representando a doçura da culinária salvadorenha.</p>
                 </div>
             </div>
         </div>
@@ -1010,52 +1005,45 @@
 
     <!-- Media Section -->
     <section id="media">
-        <h2 class="section-title">
-            <span class="section-icon">🎬</span>
-            Conteúdo Multimídia
-        </h2>
+        <h2 class="section-title">Conteúdo Multimídia</h2>
         <div class="media-buttons">
             <button class="media-btn slide-btn" onclick="openSlideModal()">
-                <span>📊</span> Ver Apresentação
+                📊 Ver Apresentação
             </button>
             <button class="media-btn video-btn" onclick="openVideoModal()">
-                <span>🎥</span> Assistir Vídeo
+                🎥 Assistir Vídeo
             </button>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p style="font-size: 1.1rem; font-weight: 600;">🇸🇻 El Salvador - Cultura e Gastronomia</p>
-        <p style="margin-top: 1rem;">© 2025 Todos os direitos reservados.</p>
+        <p>&copy; 2025 El Salvador - Cultura e Gastronomia. Todos os direitos reservados.</p>
         <p>Projeto Escolar de Culinária Internacional</p>
     </footer>
-
-    <!-- Hidden File Inputs -->
-    <input type="file" id="file-yuca-frita" accept="image/*" style="display: none;" onchange="handleImageUpload('yuca-frita')">
-    <input type="file" id="file-pupusas" accept="image/*" style="display: none;" onchange="handleImageUpload('pupusas')">
-    <input type="file" id="file-sopa-pata" accept="image/*" style="display: none;" onchange="handleImageUpload('sopa-pata')">
-    <input type="file" id="file-tamales" accept="image/*" style="display: none;" onchange="handleImageUpload('tamales')">
-    <input type="file" id="file-atol-elote" accept="image/*" style="display: none;" onchange="handleImageUpload('atol-elote')">
-    <input type="file" id="file-quesadilla" accept="image/*" style="display: none;" onchange="handleImageUpload('quesadilla')">
-    <input type="file" id="file-empanadas" accept="image/*" style="display: none;" onchange="handleImageUpload('empanadas')">
 
     <!-- Login Modal -->
     <div id="loginModal" class="modal">
         <div class="login-form">
             <span class="close" onclick="closeLoginModal()">&times;</span>
-            <h2>🔐 Login do Administrador</h2>
+            <div class="login-icon">
+                <div class="login-icon-circle">🔐</div>
+            </div>
+            <h2>Área do Administrador</h2>
+            <p class="login-subtitle">Acesso Restrito</p>
             <div id="loginMessage" class="error-message"></div>
             <form id="loginForm" onsubmit="handleLogin(event)">
                 <div class="form-group">
-                    <label for="email">📧 Email:</label>
-                    <input type="email" id="email" required placeholder="admin@elsalvador.com">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" required placeholder="seu@email.com">
                 </div>
                 <div class="form-group">
-                    <label for="password">🔒 Senha:</label>
-                    <input type="password" id="password" required placeholder="Digite sua senha">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" required placeholder="••••••••">
                 </div>
-                <button type="submit" class="login-btn">Entrar</button>
+                <button type="submit" class="login-btn">
+                    <span>Acessar Sistema</span>
+                </button>
             </form>
         </div>
     </div>
@@ -1064,57 +1052,34 @@
     <div id="adminModal" class="modal">
         <div class="admin-panel">
             <span class="close" onclick="closeAdminModal()">&times;</span>
-            <h2>⚙️ Painel do Administrador</h2>
+            <h2>⚙️ Painel de Controle</h2>
             <div id="adminMessage" class="success-message"></div>
             
             <div class="admin-section">
-                <h3>📊 Apresentação (Canva)</h3>
+                <span class="section-icon">📊</span>
                 <div class="form-group">
-                    <label for="slideUrl">URL da Apresentação:</label>
+                    <label for="slideUrl">URL da Apresentação (Canva)</label>
                     <input type="url" id="slideUrl" placeholder="https://www.canva.com/design/...">
-                    <button class="login-btn" style="margin-top: 10px;" onclick="saveSlideUrl()">💾 Salvar Apresentação</button>
+                    <button class="login-btn" style="margin-top: 15px;" onclick="saveSlideUrl()">
+                        Salvar Apresentação
+                    </button>
                 </div>
             </div>
 
             <div class="admin-section">
-                <h3>🎥 Vídeo (YouTube)</h3>
+                <span class="section-icon">🎥</span>
                 <div class="form-group">
-                    <label for="videoUrl">URL do Vídeo:</label>
+                    <label for="videoUrl">URL do Vídeo (YouTube)</label>
                     <input type="url" id="videoUrl" placeholder="https://www.youtube.com/watch?v=...">
-                    <button class="login-btn" style="margin-top: 10px;" onclick="saveVideoUrl()">💾 Salvar Vídeo</button>
-                </div>
-            </div>
-
-            <div class="admin-section">
-                <h3>🖼️ Gerenciar Imagens das Comidas</h3>
-                <p style="color: #666; margin-bottom: 1rem;">Clique nos botões abaixo para alterar as imagens de cada comida típica:</p>
-                
-                <div style="display: grid; gap: 1rem;">
-                    <button class="login-btn" onclick="triggerFileInput('yuca-frita')" style="background: linear-gradient(135deg, #667eea, #764ba2);">
-                        🌟 Yuca Frita (Nosso Grupo)
-                    </button>
-                    <button class="login-btn" onclick="triggerFileInput('pupusas')">
-                        🫓 Pupusas
-                    </button>
-                    <button class="login-btn" onclick="triggerFileInput('sopa-pata')">
-                        🍲 Sopa de Pata
-                    </button>
-                    <button class="login-btn" onclick="triggerFileInput('tamales')">
-                        🌽 Tamales
-                    </button>
-                    <button class="login-btn" onclick="triggerFileInput('atol-elote')">
-                        ☕ Atol de Elote
-                    </button>
-                    <button class="login-btn" onclick="triggerFileInput('quesadilla')">
-                        🧀 Quesadilla
-                    </button>
-                    <button class="login-btn" onclick="triggerFileInput('empanadas')">
-                        🥟 Empanadas de Leche
+                    <button class="login-btn" style="margin-top: 15px;" onclick="saveVideoUrl()">
+                        Salvar Vídeo
                     </button>
                 </div>
             </div>
 
-            <button class="logout-btn" style="margin-top: 2rem; width: 100%;" onclick="logout()">🚪 Sair</button>
+            <button class="logout-btn" style="margin-top: 2rem; width: 100%;" onclick="logout()">
+                🚪 Sair do Sistema
+            </button>
         </div>
     </div>
 
@@ -1139,7 +1104,6 @@
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
         import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
         import { getFirestore, doc, setDoc, getDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
-        import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js';
 
         // Configuração do Firebase
         const firebaseConfig = {
@@ -1148,49 +1112,30 @@
             projectId: "elsalvadorespanholatividade",
             storageBucket: "elsalvadorespanholatividade.firebasestorage.app",
             messagingSenderId: "96532685707",
-            appId: "1:96532685707:web:ce08c457e843fead08058e",
-            measurementId: "G-TNRGGC33PT"
+            appId: "1:96532685707:web:ce08c457e843fead08058e"
         };
 
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getFirestore(app);
-        const storage = getStorage(app);
 
         // Tornar disponível globalmente
         window.auth = auth;
         window.db = db;
-        window.storage = storage;
         window.signInWithEmailAndPassword = signInWithEmailAndPassword;
         window.signOut = signOut;
         window.doc = doc;
         window.setDoc = setDoc;
         window.getDoc = getDoc;
         window.onAuthStateChanged = onAuthStateChanged;
-        window.ref = ref;
-        window.uploadBytes = uploadBytes;
-        window.getDownloadURL = getDownloadURL;
 
         // Verificar autenticação
         onAuthStateChanged(auth, (user) => {
-            if (user) {
-                console.log('Usuário autenticado:', user.email);
-                // Mostrar overlay de edição nas imagens quando logado
-                document.querySelectorAll('.edit-overlay').forEach(overlay => {
-                    overlay.style.display = 'flex';
-                });
-            } else {
-                console.log('Usuário não autenticado');
-                // Esconder overlay de edição
-                document.querySelectorAll('.edit-overlay').forEach(overlay => {
-                    overlay.style.display = 'none';
-                });
-            }
+            console.log('Auth state changed:', user ? 'Logged in' : 'Logged out');
         });
 
-        // Carregar URLs e imagens ao iniciar
+        // Carregar URLs ao iniciar
         loadUrls();
-        loadAllImages();
     </script>
 
     <script>
@@ -1244,7 +1189,7 @@
                 closeLoginModal();
                 openAdminModal();
             } catch (error) {
-                messageDiv.textContent = '❌ Erro ao fazer login: ' + error.message;
+                messageDiv.textContent = 'Erro ao fazer login: ' + error.message;
                 messageDiv.style.display = 'block';
                 console.error('Login error:', error);
             }
@@ -1255,10 +1200,10 @@
             try {
                 await window.signOut(window.auth);
                 closeAdminModal();
-                alert('✅ Logout realizado com sucesso!');
+                alert('Logout realizado com sucesso!');
             } catch (error) {
                 console.error('Logout error:', error);
-                alert('❌ Erro ao fazer logout');
+                alert('Erro ao fazer logout');
             }
         }
 
@@ -1268,7 +1213,7 @@
             const messageDiv = document.getElementById('adminMessage');
 
             if (!url) {
-                alert('⚠️ Por favor, insira uma URL válida');
+                alert('Por favor, insira uma URL válida');
                 return;
             }
 
@@ -1297,7 +1242,7 @@
             const messageDiv = document.getElementById('adminMessage');
 
             if (!url) {
-                alert('⚠️ Por favor, insira uma URL válida');
+                alert('Por favor, insira uma URL válida');
                 return;
             }
 
@@ -1357,11 +1302,11 @@
                     document.getElementById('slideFrame').src = url;
                     document.getElementById('slideModal').style.display = 'block';
                 } else {
-                    alert('⚠️ Nenhuma apresentação foi configurada ainda. Por favor, entre como administrador para adicionar uma.');
+                    alert('Nenhuma apresentação foi configurada ainda. Por favor, entre como administrador para adicionar uma.');
                 }
             } catch (error) {
                 console.error('Load slide error:', error);
-                alert('❌ Erro ao carregar apresentação. Por favor, tente novamente.');
+                alert('Erro ao carregar apresentação. Por favor, tente novamente.');
             }
         }
 
@@ -1374,98 +1319,17 @@
                     document.getElementById('videoFrame').src = url;
                     document.getElementById('videoModal').style.display = 'block';
                 } else {
-                    alert('⚠️ Nenhum vídeo foi configurado ainda. Por favor, entre como administrador para adicionar um.');
+                    alert('Nenhum vídeo foi configurado ainda. Por favor, entre como administrador para adicionar um.');
                 }
             } catch (error) {
                 console.error('Load video error:', error);
-                alert('❌ Erro ao carregar vídeo. Por favor, tente novamente.');
-            }
-        }
-
-        // Image Upload Functions
-        function triggerFileInput(foodId) {
-            document.getElementById(`file-${foodId}`).click();
-        }
-
-        async function handleImageUpload(foodId) {
-            const fileInput = document.getElementById(`file-${foodId}`);
-            const file = fileInput.files[0];
-
-            if (!file) return;
-
-            // Verificar se usuário está autenticado
-            if (!window.auth.currentUser) {
-                alert('❌ Você precisa estar logado para alterar imagens!');
-                return;
-            }
-
-            // Verificar tipo de arquivo
-            if (!file.type.startsWith('image/')) {
-                alert('❌ Por favor, selecione apenas arquivos de imagem!');
-                return;
-            }
-
-            // Verificar tamanho (max 5MB)
-            if (file.size > 5 * 1024 * 1024) {
-                alert('❌ A imagem deve ter no máximo 5MB!');
-                return;
-            }
-
-            try {
-                // Mostrar loading
-                const img = document.getElementById(`img-${foodId}`);
-                const originalSrc = img.src;
-                img.style.opacity = '0.5';
-
-                // Upload para Firebase Storage
-                const storageRef = window.ref(window.storage, `food-images/${foodId}/${Date.now()}_${file.name}`);
-                const snapshot = await window.uploadBytes(storageRef, file);
-                const downloadURL = await window.getDownloadURL(snapshot.ref);
-
-                // Salvar URL no Firestore
-                await window.setDoc(window.doc(window.db, 'food-images', foodId), {
-                    url: downloadURL,
-                    updatedAt: new Date().toISOString()
-                });
-
-                // Atualizar imagem na página
-                img.src = downloadURL;
-                img.style.opacity = '1';
-
-                alert('✅ Imagem atualizada com sucesso!');
-            } catch (error) {
-                console.error('Image upload error:', error);
-                alert('❌ Erro ao fazer upload da imagem: ' + error.message);
-                img.style.opacity = '1';
-            }
-
-            // Limpar input
-            fileInput.value = '';
-        }
-
-        // Load all images from Firestore
-        async function loadAllImages() {
-            const foodIds = ['yuca-frita', 'pupusas', 'sopa-pata', 'tamales', 'atol-elote', 'quesadilla', 'empanadas'];
-
-            for (const foodId of foodIds) {
-                try {
-                    const docSnap = await window.getDoc(window.doc(window.db, 'food-images', foodId));
-                    if (docSnap.exists()) {
-                        const data = docSnap.data();
-                        const img = document.getElementById(`img-${foodId}`);
-                        if (img && data.url) {
-                            img.src = data.url;
-                        }
-                    }
-                } catch (error) {
-                    console.error(`Error loading image for ${foodId}:`, error);
-                }
+                alert('Erro ao carregar vídeo. Por favor, tente novamente.');
             }
         }
 
         // Load URLs on page load
         async function loadUrls() {
-            console.log('✅ Página carregada, pronto para carregar mídia');
+            console.log('Page loaded, ready to load media');
         }
 
         // Close modals when clicking outside
@@ -1504,23 +1368,26 @@
         });
 
         // Header scroll effect
+        let lastScroll = 0;
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             const currentScroll = window.pageYOffset;
 
-            if (currentScroll > 50) {
-                header.style.padding = '0.8rem 5%';
-                header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.12)';
+            if (currentScroll > 100) {
+                header.style.padding = '0.5rem 5%';
+                header.style.boxShadow = '0 5px 40px rgba(102, 126, 234, 0.6)';
             } else {
                 header.style.padding = '1rem 5%';
-                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
+                header.style.boxShadow = '0 5px 40px rgba(102, 126, 234, 0.4)';
             }
+
+            lastScroll = currentScroll;
         });
 
         // Animate elements on scroll
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -80px 0px'
+            rootMargin: '0px 0px -100px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -1535,8 +1402,8 @@
         // Observe all cards
         document.querySelectorAll('.about-card, .food-card').forEach(card => {
             card.style.opacity = '0';
-            card.style.transform = 'translateY(40px)';
-            card.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
             observer.observe(card);
         });
 
@@ -1545,7 +1412,7 @@
             const hero = document.querySelector('.hero');
             const scrolled = window.pageYOffset;
             if (hero && scrolled < window.innerHeight) {
-                hero.style.transform = `translateY(${scrolled * 0.4}px)`;
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
             }
         });
 
@@ -1553,15 +1420,14 @@
         window.addEventListener('load', () => {
             document.body.style.opacity = '0';
             setTimeout(() => {
-                document.body.style.transition = 'opacity 0.6s ease';
+                document.body.style.transition = 'opacity 0.5s ease';
                 document.body.style.opacity = '1';
             }, 100);
         });
 
         // Console welcome message
-        console.log('%c🇸🇻 Bem-vindo ao site sobre El Salvador! 🇸🇻', 'color: #0047AB; font-size: 24px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);');
-        console.log('%c✨ Projeto desenvolvido com ❤️ para apresentação escolar', 'color: #667eea; font-size: 16px; font-weight: 600;');
-        console.log('%c🍽️ Gastronomia | 🎨 Cultura | 🌍 História', 'color: #764ba2; font-size: 14px;');
+        console.log('%c🇸🇻 Bem-vindo ao site sobre El Salvador! 🇸🇻', 'color: #0047AB; font-size: 20px; font-weight: bold;');
+        console.log('%cProjeto desenvolvido com ❤️ para apresentação escolar', 'color: #667eea; font-size: 14px;');
     </script>
 </body>
 </html>
