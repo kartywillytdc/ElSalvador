@@ -1,0 +1,2709 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Salvador - Cultura e Gastronomia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #5AC8FA;
+            --secondary: #8B7355;
+            --accent: #007AFF;
+            --dark: #1C1C1E;
+            --darker: #0A0A0A;
+            --card-bg: #2C2C2E;
+            --light-text: #FFFFFF;
+            --gray: #98989D;
+            --success: #30D158;
+            --error: #FF453A;
+            --warning: #FFD60A;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            background: var(--darker);
+            color: var(--light-text);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(28, 28, 30, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), #007AFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--primary), #007AFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: flagWave 3s ease-in-out infinite;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), #007AFF);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .admin-btn {
+            background: linear-gradient(135deg, var(--primary), #007AFF);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 8px 24px rgba(90, 200, 250, 0.3);
+        }
+
+        .admin-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 12px 32px rgba(90, 200, 250, 0.4);
+        }
+
+        .admin-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0A0A0A 0%, #1C1C1E 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(90, 200, 250, 0.15) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            padding-top: 80px;
+        }
+
+        .flag-container {
+            perspective: 1200px;
+            margin: 0 auto 3rem;
+            position: relative;
+        }
+
+        .flag {
+            width: 400px;
+            height: 267px;
+            margin: 0 auto;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.6),
+                        0 0 100px rgba(90, 200, 250, 0.3),
+                        inset 0 0 60px rgba(255, 255, 255, 0.05);
+            animation: float 6s ease-in-out infinite;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .flag:hover {
+            transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+            box-shadow: 0 40px 110px rgba(0, 0, 0, 0.7),
+                        0 0 120px rgba(90, 200, 250, 0.5);
+        }
+
+        .flag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shine 3s ease-in-out infinite;
+        }
+
+        .flag-stripe {
+            height: 33.33%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flag-stripe::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            animation: wave 4s ease-in-out infinite;
+        }
+
+        .blue {
+            background: linear-gradient(135deg, #0047AB 0%, #003D96 100%);
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .white {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F0F0F0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .emblem {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: #0047AB;
+            font-size: 2rem;
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.4),
+                        inset 0 -5px 15px rgba(0, 0, 0, 0.2);
+            animation: emblemPulse 4s ease-in-out infinite;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+        }
+
+        .emblem::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 20%;
+            width: 30%;
+            height: 30%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent);
+            border-radius: 50%;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .hero h1 {
+            font-size: 5.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -3px;
+            background: linear-gradient(135deg, var(--primary) 0%, #007AFF 50%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 80px rgba(90, 200, 250, 0.5);
+            animation: textGlow 3s ease-in-out infinite;
+        }
+
+        .hero p {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--gray);
+            letter-spacing: -0.5px;
+            opacity: 0.9;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 120px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, var(--primary) 0%, #007AFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeIn 1s ease;
+        }
+
+        .section-subtitle {
+            font-size: 1.4rem;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        /* About Cards */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .about-card {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 28px;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(90, 200, 250, 0.05) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .about-card:hover::before {
+            opacity: 1;
+        }
+
+        .about-card:hover {
+            transform: translateY(-12px);
+            border-color: rgba(90, 200, 250, 0.3);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4),
+                        0 0 60px rgba(90, 200, 250, 0.2);
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), #007AFF);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 10px 30px rgba(90, 200, 250, 0.3);
+            animation: iconFloat 4s ease-in-out infinite;
+        }
+
+        .about-card h3 {
+            color: var(--light-text);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .about-card p {
+            color: var(--gray);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Food Section */
+        .food-section {
+            background: var(--dark);
+            border-radius: 48px;
+            padding: 5rem 4rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .food-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(90, 200, 250, 0.1) 0%, transparent 70%);
+            animation: rotate 25s linear infinite;
+        }
+
+        /* Nossa Comida Especial */
+        .special-group-section {
+            margin-bottom: 6rem;
+            background: linear-gradient(135deg, rgba(139, 115, 85, 0.15) 0%, rgba(90, 200, 250, 0.1) 100%);
+            border-radius: 40px;
+            padding: 4rem;
+            border: 2px solid rgba(90, 200, 250, 0.2);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4),
+                        inset 0 0 80px rgba(90, 200, 250, 0.05);
+        }
+
+        .special-group-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(90, 200, 250, 0.05) 50%, transparent 70%);
+            animation: shine 6s ease-in-out infinite;
+        }
+
+        .special-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .special-title h2 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            text-shadow: 0 0 40px rgba(90, 200, 250, 0.3);
+        }
+
+        .special-title .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--secondary), #6D5744);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 100px;
+            font-size: 1rem;
+            font-weight: 700;
+            animation: pulse 3s infinite;
+            box-shadow: 0 10px 40px rgba(139, 115, 85, 0.4);
+        }
+
+        .our-dish-card {
+            background: var(--card-bg);
+            border-radius: 36px;
+            overflow: hidden;
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.5);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            max-width: 1100px;
+            margin: 0 auto;
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .our-dish-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(90, 200, 250, 0.05) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            pointer-events: none;
+        }
+
+        .our-dish-card:hover::before {
+            opacity: 1;
+        }
+
+        .our-dish-card:hover {
+            transform: scale(1.02) translateY(-8px);
+            box-shadow: 0 40px 110px rgba(0, 0, 0, 0.6),
+                        0 0 80px rgba(90, 200, 250, 0.2);
+        }
+
+        .our-dish-image {
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .our-dish-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .our-dish-card:hover .our-dish-image img {
+            transform: scale(1.1) rotate(2deg);
+        }
+
+        .edit-image-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 100px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: none;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 10;
+        }
+
+        .edit-image-btn:hover {
+            background: var(--primary);
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(90, 200, 250, 0.4);
+        }
+
+        .our-dish-content {
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .our-dish-content h3 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .our-dish-content .highlight {
+            background: linear-gradient(135deg, var(--primary), #007AFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .our-dish-content p {
+            color: var(--gray);
+            line-height: 1.9;
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .ingredients-list {
+            background: rgba(90, 200, 250, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+            border: 1px solid rgba(90, 200, 250, 0.2);
+        }
+
+        .ingredients-list h4 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ingredients-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .ingredients-list li {
+            color: var(--light-text);
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+        }
+
+        .ingredients-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .ingredients-list li:hover {
+            padding-left: 2.5rem;
+            color: var(--primary);
+        }
+
+        .optional-note {
+            color: var(--secondary);
+            font-style: italic;
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Food Grid */
+        .food-grid-title {
+            color: var(--light-text);
+            font-size: 2.5rem;
+            margin: 5rem 0 3rem;
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .food-card {
+            background: var(--card-bg);
+            border-radius: 28px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .food-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(90, 200, 250, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .food-card:hover::before {
+            opacity: 1;
+        }
+
+        .food-card:hover {
+            transform: translateY(-12px);
+            border-color: rgba(90, 200, 250, 0.4);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5),
+                        0 0 60px rgba(90, 200, 250, 0.2);
+        }
+
+        .food-image-container {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .food-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .food-card:hover .food-image {
+            transform: scale(1.15);
+        }
+
+        .food-content {
+            padding: 2.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .food-content h3 {
+            color: var(--light-text);
+            margin-bottom: 1rem;
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .food-content p {
+            color: var(--gray);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Interactive Food Details Modal */
+        .food-details-modal {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(20px);
+            animation: fadeIn 0.4s ease;
+        }
+
+        .food-details-content {
+            position: relative;
+            margin: 2% auto;
+            width: 90%;
+            max-width: 1200px;
+            max-height: 90vh;
+            overflow-y: auto;
+            background: var(--card-bg);
+            border-radius: 36px;
+            animation: slideInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .food-details-header {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .food-details-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .food-details-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(to top, var(--card-bg), transparent);
+        }
+
+        .food-details-body {
+            padding: 3rem 4rem 4rem;
+        }
+
+        .food-details-body h2 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+        }
+
+        .food-details-body p {
+            color: var(--gray);
+            line-height: 1.9;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Media Section */
+        .media-section {
+            background: var(--card-bg);
+            border-radius: 40px;
+            padding: 5rem 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .media-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(90, 200, 250, 0.1) 0%, transparent 60%);
+            animation: rotate 30s linear infinite;
+        }
+
+        .media-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .media-btn {
+            padding: 20px 48px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .media-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .media-btn:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .slide-btn {
+            background: linear-gradient(135deg, var(--secondary), #6D5744);
+            color: white;
+            box-shadow: 0 10px 40px rgba(139, 115, 85, 0.3);
+        }
+
+        .video-btn {
+            background: linear-gradient(135deg, #FF0000, #CC0000);
+            color: white;
+            box-shadow: 0 10px 40px rgba(255, 0, 0, 0.3);
+        }
+
+        .media-btn:hover {
+            transform: translateY(-6px) scale(1.05);
+        }
+
+        .media-btn:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .media-btn i {
+            font-size: 1.4rem;
+            position: relative;
+            z-index: 1;
+        }
+      /* Modal Styles */
+.modal {
+display: none;
+position: fixed;
+z-index: 2000;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.85);
+backdrop-filter: blur(20px);
+animation: fadeIn 0.4s ease;
+}
+      .modal-content {
+        position: relative;
+        margin: 3% auto;
+        width: 90%;
+        max-width: 1200px;
+        background: var(--card-bg);
+        border-radius: 36px;
+        overflow: hidden;
+        animation: slideInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .close {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        font-size: 32px;
+        font-weight: 700;
+        color: white;
+        cursor: pointer;
+        z-index: 2001;
+        background: rgba(0, 0, 0, 0.7);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .close:hover {
+        background: var(--error);
+        transform: rotate(90deg) scale(1.1);
+        box-shadow: 0 8px 32px rgba(255, 69, 58, 0.4);
+    }
+
+    .modal iframe {
+        width: 100%;
+        height: 80vh;
+        border: none;
+    }
+
+    /* Login Form */
+    .login-form {
+        background: var(--card-bg);
+        padding: 4rem;
+        border-radius: 36px;
+        max-width: 480px;
+        width: 90%;
+        margin: 10% auto;
+        box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6);
+        animation: zoomIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .login-form::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), #007AFF);
+    }
+
+    .login-form h2 {
+        color: var(--light-text);
+        margin-bottom: 2.5rem;
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 800;
+        letter-spacing: -1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .form-group {
+        margin-bottom: 2rem;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.8rem;
+        color: var(--light-text);
+        font-weight: 600;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 16px 20px;
+        border: 1.5px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        font-size: 1.05rem;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--light-text);
+    }
+
+    .form-group input:focus {
+        outline: none;
+        border-color: var(--primary);
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 0 0 4px rgba(90, 200, 250, 0.1),
+                    0 8px 24px rgba(90, 200, 250, 0.2);
+        transform: translateY(-2px);
+    }
+
+    .form-group input::placeholder {
+        color: var(--gray);
+    }
+
+    .login-btn {
+        width: 100%;
+        padding: 18px;
+        background: linear-gradient(135deg, var(--primary), #007AFF);
+        color: white;
+        border: none;
+        border-radius: 16px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        box-shadow: 0 10px 40px rgba(90, 200, 250, 0.3);
+    }
+
+    .login-btn:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 48px rgba(90, 200, 250, 0.4);
+    }
+
+    .login-btn:active {
+        transform: translateY(-2px);
+    }
+
+    /* Admin Panel */
+    .admin-panel {
+        display: none;
+        background: var(--card-bg);
+        padding: 4rem;
+        border-radius: 36px;
+        max-width: 1000px;
+        width: 90%;
+        margin: 3% auto;
+        box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6);
+        max-height: 85vh;
+        overflow-y: auto;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+    }
+
+    .admin-panel::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), #007AFF);
+    }
+
+    .admin-panel h2 {
+        color: var(--light-text);
+        margin-bottom: 3rem;
+        font-size: 2.8rem;
+        font-weight: 800;
+        letter-spacing: -1.5px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .admin-section {
+        background: rgba(255, 255, 255, 0.03);
+        padding: 2.5rem;
+        border-radius: 24px;
+        margin-bottom: 2.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.4s ease;
+    }
+
+    .admin-section:hover {
+        border-color: rgba(90, 200, 250, 0.3);
+        background: rgba(90, 200, 250, 0.05);
+    }
+
+    .admin-section h3 {
+        color: var(--primary);
+        margin-bottom: 2rem;
+        font-size: 1.6rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .food-images-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .food-image-item {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        aspect-ratio: 1;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+    }
+
+    .food-image-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5),
+                    0 0 40px rgba(90, 200, 250, 0.3);
+        border-color: var(--primary);
+    }
+
+    .food-image-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+    }
+
+    .food-image-item:hover img {
+        transform: scale(1.1);
+    }
+
+    .food-image-item label {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+        color: white;
+        padding: 12px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-align: center;
+        backdrop-filter: blur(10px);
+    }
+
+    .food-image-item input[type="file"] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .logout-btn {
+        background: linear-gradient(135deg, var(--error), #CC0000);
+        color: white;
+        padding: 16px 32px;
+        border: none;
+        border-radius: 100px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 1.05rem;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 3rem;
+        width: 100%;
+        justify-content: center;
+        box-shadow: 0 10px 40px rgba(255, 69, 58, 0.3);
+    }
+
+    .logout-btn:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 48px rgba(255, 69, 58, 0.4);
+    }
+
+    /* Footer */
+    footer {
+        background: var(--dark);
+        color: var(--gray);
+        text-align: center;
+        padding: 4rem 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        position: relative;
+    }
+
+    footer p {
+        margin: 0.8rem 0;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+    }
+
+    footer p:hover {
+        color: var(--primary);
+    }
+
+    footer i {
+        color: var(--error);
+        animation: heartBeat 1.5s infinite;
+    }
+
+    /* Messages */
+    .success-message, .error-message {
+        padding: 18px 24px;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        text-align: center;
+        display: none;
+        font-weight: 600;
+        animation: slideInDown 0.4s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .success-message {
+        background: var(--success);
+        color: white;
+        box-shadow: 0 8px 32px rgba(48, 209, 88, 0.3);
+    }
+
+    .error-message {
+        background: var(--error);
+        color: white;
+        box-shadow: 0 8px 32px rgba(255, 69, 58, 0.3);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(60px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-80px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideInUp {
+        from {
+            opacity: 0;
+            transform: translateY(80px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes zoomIn {
+        from {
+            opacity: 0;
+            transform: scale(0.85);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes float {
+        0%, 100% { 
+            transform: translateY(0) rotateY(0deg); 
+        }
+        50% { 
+            transform: translateY(-30px) rotateY(5deg); 
+        }
+    }
+
+    @keyframes pulse {
+        0%, 100% { 
+            transform: scale(1); 
+            box-shadow: 0 10px 40px rgba(139, 115, 85, 0.4);
+        }
+        50% { 
+            transform: scale(1.05); 
+            box-shadow: 0 15px 50px rgba(139, 115, 85, 0.6);
+        }
+    }
+
+    @keyframes iconFloat {
+        0%, 100% { 
+            transform: translateY(0) rotate(0deg); 
+        }
+        50% { 
+            transform: translateY(-10px) rotate(10deg); 
+        }
+    }
+
+    @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    @keyframes flagWave {
+        0%, 100% { 
+            transform: rotate(0deg); 
+        }
+        25% { 
+            transform: rotate(15deg); 
+        }
+        75% { 
+            transform: rotate(-15deg); 
+        }
+    }
+
+    @keyframes emblemPulse {
+        0%, 100% { 
+            transform: scale(1) rotate(0deg);
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.4);
+        }
+        50% { 
+            transform: scale(1.1) rotate(180deg);
+            box-shadow: 0 15px 60px rgba(255, 215, 0, 0.6);
+        }
+    }
+
+    @keyframes shine {
+        0% { left: -100%; }
+        50%, 100% { left: 200%; }
+    }
+
+    @keyframes wave {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(10px); }
+    }
+
+    @keyframes shimmer {
+        0%, 100% { opacity: 0.8; }
+        50% { opacity: 0.4; }
+    }
+
+    @keyframes textGlow {
+        0%, 100% { 
+            text-shadow: 0 0 80px rgba(90, 200, 250, 0.5);
+        }
+        50% { 
+            text-shadow: 0 0 120px rgba(90, 200, 250, 0.8);
+        }
+    }
+
+    @keyframes heartBeat {
+        0%, 100% { transform: scale(1); }
+        25% { transform: scale(1.2); }
+        50% { transform: scale(1); }
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: var(--darker);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(135deg, var(--primary), #007AFF);
+        border-radius: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(135deg, #007AFF, var(--primary));
+    }
+
+    /* Selection */
+    ::selection {
+        background: rgba(90, 200, 250, 0.3);
+        color: white;
+    }
+
+    /* Focus */
+    *:focus-visible {
+        outline: 2px solid var(--primary);
+        outline-offset: 4px;
+        border-radius: 8px;
+    }
+
+    /* Admin Logged In */
+    .admin-logged-in .edit-image-btn {
+        display: flex;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .our-dish-card {
+            grid-template-columns: 1fr;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+        }
+
+        .flag {
+            width: 280px;
+            height: 187px;
+        }
+
+        .food-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .media-buttons {
+            flex-direction: column;
+        }
+
+        .food-images-grid {
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        }
+
+        .our-dish-content {
+            padding: 2.5rem;
+        }
+
+        .food-details-body {
+            padding: 2rem;
+        }
+
+        .login-form,
+        .admin-panel {
+            padding: 2.5rem;
+        }
+    }
+
+    /* Loading Animation */
+    .spinner {
+        border: 3px solid rgba(90, 200, 250, 0.3);
+        border-top: 3px solid var(--primary);
+        border-radius: 50%;
+        width: 28px;
+        height: 28px;
+        animation: spin 0.8s linear infinite;
+        display: inline-block;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    /* Notification Toast */
+    .notification-toast {
+        position: fixed;
+        top: 100px;
+        right: 30px;
+        background: var(--card-bg);
+        color: white;
+        padding: 20px 30px;
+        border-radius: 16px;
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6),
+                    0 0 60px rgba(90, 200, 250, 0.3);
+        z-index: 10000;
+        animation: slideInRight 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        max-width: 400px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+    }
+
+    @keyframes slideInRight {
+        from {
+            transform: translateX(500px);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideOutRight {
+        from {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateX(500px);
+            opacity: 0;
+        }
+    }
+</style>
+El Salvador 
+Início
+Sobre
+Gastronomia
+Mídia
+Admin 
+  <!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <div class="flag-container">
+            <div class="flag">
+                <div class="flag-stripe blue"></div>
+                <div class="flag-stripe white">
+                    <div class="emblem">🇸🇻</div>
+                </div>
+                <div class="flag-stripe blue"></div>
+            </div>
+        </div>
+        <h1>El Salvador</h1>
+        <p>Descubra a beleza e os sabores deste país incrível</p>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+    <div class="section-header">
+        <h2 class="section-title">Sobre El Salvador</h2>
+        <p class="section-subtitle">Conheça mais sobre este país fascinante</p>
+    </div>
+    <div class="about-grid">
+        <div class="about-card">
+            <div class="card-icon">
+                <i class="fas fa-mountain"></i>
+            </div>
+            <h3>Geografia</h3>
+            <p>El Salvador é o menor país da América Central, localizado entre Guatemala e Honduras. Possui lindas praias no Oceano Pacífico e impressionantes vulcões. É conhecido como a "Terra dos Vulcões" com mais de 20 vulcões em seu território.</p>
+        </div>
+        <div class="about-card">
+            <div class="card-icon">
+                <i class="fas fa-landmark"></i>
+            </div>
+            <h3>História</h3>
+            <p>Com rica herança maia, El Salvador conquistou sua independência da Espanha em 1821. O país possui importantes sítios arqueológicos como Joya de Cerén, a "Pompeia das Américas", preservada por cinzas vulcânicas.</p>
+        </div>
+        <div class="about-card">
+            <div class="card-icon">
+                <i class="fas fa-masks-theater"></i>
+            </div>
+            <h3>Cultura</h3>
+            <p>A cultura salvadorenha é uma vibrante mistura de tradições indígenas e espanholas. O país é famoso por seu artesanato colorido, música tradicional e festivais religiosos que celebram santos padroeiros em cada cidade.</p>
+        </div>
+        <div class="about-card">
+            <div class="card-icon">
+                <i class="fas fa-coins"></i>
+            </div>
+            <h3>Economia</h3>
+            <p>El Salvador adotou o dólar americano como moeda oficial em 2001 e, mais recentemente, tornou-se o primeiro país a adotar o Bitcoin como moeda legal. A economia baseia-se em agricultura, manufatura e remessas.</p>
+        </div>
+        <div class="about-card">
+            <div class="card-icon">
+                <i class="fas fa-tree"></i>
+            </div>
+            <h3>Natureza</h3>
+            <p>O país oferece paisagens diversificadas: praias de surfe de classe mundial, lagos crateras vulcânicas, florestas nubladas e parques nacionais. O Lago Coatepeque é considerado um dos lagos mais bonitos do mundo.</p>
+        </div>
+        <div class="about-card">
+            <div class="card-icon">
+                <i class="fas fa-palette"></i>
+            </div>
+            <h3>Arte e Tradição</h3>
+            <p>El Salvador tem uma rica tradição artística, incluindo cerâmica indígena, tecelagem, e arte moderna. A cidade de La Palma é famosa por suas coloridas pinturas folclóricas que retratam a vida rural salvadorenha.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Food Section -->
+<section id="food" class="food-section">
+    <div class="section-header">
+        <h2 class="section-title">Gastronomia Salvadorenha</h2>
+        <p class="section-subtitle">Sabores autênticos da culinária tradicional</p>
+    </div>
+
+    <!-- Nossa Comida Especial -->
+    <div class="special-group-section">
+        <div class="special-title">
+            <h2>
+                <i class="fas fa-star"></i>
+                Prato do Nosso Grupo
+                <i class="fas fa-star"></i>
+            </h2>
+            <span class="badge">
+                <i class="fas fa-utensils"></i>
+                Vamos Preparar Esta Delícia!
+            </span>
+        </div>
+        <div class="our-dish-card" id="ourDishCard">
+            <div class="our-dish-image">
+                <img id="ourDishImage" src="https://images.unsplash.com/photo-1633874508218-8c3e43e04b9b?w=700&h=700&fit=crop" alt="Yuca Frita">
+                <button class="edit-image-btn" onclick="document.getElementById('ourDishImageInput').click()">
+                    <i class="fas fa-camera"></i>
+                    Alterar Imagem
+                </button>
+                <input type="file" id="ourDishImageInput" accept="image/*" style="display: none;" onchange="handleOurDishImageUpload(event)">
+            </div>
+            <div class="our-dish-content">
+                <h3>
+                    <i class="fas fa-pepper-hot"></i>
+                    Yuca Frita
+                </h3>
+                <span class="highlight">
+                    <i class="fas fa-award"></i>
+                    Esta é a comida típica que nosso grupo irá preparar!
+                </span>
+                <p>A yuca frita (mandioca frita) é um acompanhamento muito popular em El Salvador. A mandioca é cozida até ficar macia, depois cortada em palitos e frita até dourar e ficar crocante por fora e macia por dentro.</p>
+                
+                <div class="ingredients-list">
+                    <h4>
+                        <i class="fas fa-list-check"></i>
+                        Ingredientes da Nossa Receita
+                    </h4>
+                    <ul>
+                        <li><strong>Mandioca Frita</strong> - O ingrediente principal, frita até ficar crocante</li>
+                        <li><strong>Molho de Tomate</strong> - Molho picante tradicional salvadorenho</li>
+                        <li><strong>Queijo</strong> 
+                            <span class="optional-note">(opcional - será adicionado pelo nosso grupo!)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <p style="margin-top: 1.5rem; font-style: italic; color: var(--primary);">
+                    <i class="fas fa-heart"></i>
+                    Tradicionalmente servida com curtido (salada de repolho fermentado) e chicharrón (torresmo). Uma delícia da culinária salvadorenha!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Outras Comidas -->
+    <div>
+        <h3 class="food-grid-title">
+            <i class="fas fa-utensils"></i>
+            Outras Delícias Salvadorenhas
+        </h3>
+        <div class="food-grid">
+            <div class="food-card" onclick="openFoodDetails(0)">
+                <div class="food-image-container">
+                    <img id="foodImage1" src="https://images.unsplash.com/photo-1626200419199-391ae4be7a41?w=600&h=400&fit=crop" alt="Pupusas" class="food-image">
+                    <button class="edit-image-btn" onclick="event.stopPropagation(); document.getElementById('foodImageInput1').click()">
+                        <i class="fas fa-camera"></i>
+                        Alterar
+                    </button>
+                    <input type="file" id="foodImageInput1" accept="image/*" style="display: none;" onchange="handleFoodImageUpload(event, 1)">
+                </div>
+                <div class="food-content">
+                    <h3>
+                        <i class="fas fa-circle" style="color: var(--primary); font-size: 0.6rem;"></i>
+                        Pupusas
+                    </h3>
+                    <p>O prato nacional de El Salvador! Tortilhas grossas de milho ou arroz recheadas com queijo, feijão, chicharrón ou loroco.</p>
+                </div>
+            </div>
+
+            <div class="food-card" onclick="openFoodDetails(1)">
+                <div class="food-image-container">
+                    <img id="foodImage2" src="https://images.unsplash.com/photo-1562158147-f6f17f98b90c?w=600&h=400&fit=crop" alt="Sopa de Pata" class="food-image">
+                    <button class="edit-image-btn" onclick="event.stopPropagation(); document.getElementById('foodImageInput2').click()">
+                        <i class="fas fa-camera"></i>
+                        Alterar
+                    </button>
+                    <input type="file" id="foodImageInput2" accept="image/*" style="display: none;" onchange="handleFoodImageUpload(event, 2)">
+                </div>
+                <div class="food-content">
+                    <h3>
+                        <i class="fas fa-circle" style="color: var(--primary); font-size: 0.6rem;"></i>
+                        Sopa de Pata
+                    </h3>
+                    <p>Uma sopa tradicional e substanciosa feita com patas de vaca, milho, banana-da-terra, mandioca e vegetais. Temperada com especiarias locais.
+                      <div class="food-card" onclick="openFoodDetails(2)">
+                <div class="food-image-container">
+                    <img id="foodImage3" src="https://images.unsplash.com/photo-1599974672063-a4d00c87ad8a?w=600&h=400&fit=crop" alt="Tamales" class="food-image">
+                    <button class="edit-image-btn" onclick="event.stopPropagation(); document.getElementById('foodImageInput3').click()">
+                        <i class="fas fa-camera"></i>
+                        Alterar
+                    </button>
+                    <input type="file" id="foodImageInput3" accept="image/*" style="display: none;" onchange="handleFoodImageUpload(event, 3)">
+                </div>
+                <div class="food-content">
+                    <h3>
+                        <i class="fas fa-circle" style="color: var(--primary); font-size: 0.6rem;"></i>
+                        Tamales
+                    </h3>
+                    <p>Massa de milho recheada com carne, azeitonas, pimentão e passas, envolta em folhas de bananeira.</p>
+                </div>
+            </div>
+
+            <div class="food-card" onclick="openFoodDetails(3)">
+                <div class="food-image-container">
+                    <img id="foodImage4" src="https://images.unsplash.com/photo-1618164436241-4473940d1f5c?w=600&h=400&fit=crop" alt="Atol de Elote" class="food-image">
+                    <button class="edit-image-btn" onclick="event.stopPropagation(); document.getElementById('foodImageInput4').click()">
+                        <i class="fas fa-camera"></i>
+                        Alterar
+                    </button>
+                    <input type="file" id="foodImageInput4" accept="image/*" style="display: none;" onchange="handleFoodImageUpload(event, 4)">
+                </div>
+                <div class="food-content">
+                    <h3>
+                        <i class="fas fa-circle" style="color: var(--primary); font-size: 0.6rem;"></i>
+                        Atol de Elote
+                    </h3>
+                    <p>Bebida quente e cremosa feita de milho fresco, leite, açúcar e canela. Tradicional e reconfortante.</p>
+                </div>
+            </div>
+
+            <div class="food-card" onclick="openFoodDetails(4)">
+                <div class="food-image-container">
+                    <img id="foodImage5" src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=600&h=400&fit=crop" alt="Quesadilla" class="food-image">
+                    <button class="edit-image-btn" onclick="event.stopPropagation(); document.getElementById('foodImageInput5').click()">
+                        <i class="fas fa-camera"></i>
+                        Alterar
+                    </button>
+                    <input type="file" id="foodImageInput5" accept="image/*" style="display: none;" onchange="handleFoodImageUpload(event, 5)">
+                </div>
+                <div class="food-content">
+                    <h3>
+                        <i class="fas fa-circle" style="color: var(--primary); font-size: 0.6rem;"></i>
+                        Quesadilla Salvadorenha
+                    </h3>
+                    <p>Um doce em forma de bolo feito com queijo, farinha de arroz, creme e sementes de gergelim.</p>
+                </div>
+            </div>
+
+            <div class="food-card" onclick="openFoodDetails(5)">
+                <div class="food-image-container">
+                    <img id="foodImage6" src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=600&h=400&fit=crop" alt="Empanadas" class="food-image">
+                    <button class="edit-image-btn" onclick="event.stopPropagation(); document.getElementById('foodImageInput6').click()">
+                        <i class="fas fa-camera"></i>
+                        Alterar
+                    </button>
+                    <input type="file" id="foodImageInput6" accept="image/*" style="display: none;" onchange="handleFoodImageUpload(event, 6)">
+                </div>
+                <div class="food-content">
+                    <h3>
+                        <i class="fas fa-circle" style="color: var(--primary); font-size: 0.6rem;"></i>
+                        Empanadas de Plátano
+                    </h3>
+                    <p>Deliciosas empanadas doces feitas com massa de banana-da-terra madura, recheadas com creme ou feijão doce.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Media Section -->
+<section id="media">
+    <div class="media-section">
+        <div class="section-header">
+            <h2 class="section-title">Conteúdo Multimídia</h2>
+            <p class="section-subtitle">Apresentações e vídeos sobre El Salvador</p>
+        </div>
+        <div class="media-buttons">
+            <button class="media-btn slide-btn" onclick="openSlideModal()">
+                <i class="fas fa-presentation"></i>
+                Ver Apresentação
+            </button>
+            <button class="media-btn video-btn" onclick="openVideoModal()">
+                <i class="fab fa-youtube"></i>
+                Assistir Vídeo
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p style="font-size: 1.2rem; margin-bottom: 1rem;">
+        <i class="fas fa-heart"></i>
+        Feito com carinho
+    </p>
+    <p>&copy; 2025 El Salvador - Cultura e Gastronomia</p>
+    <p>Projeto Escolar de Culinária Internacional</p>
+</footer>
+
+<!-- Food Details Modal -->
+<div id="foodDetailsModal" class="food-details-modal">
+    <div class="food-details-content">
+        <span class="close" onclick="closeFoodDetails()">&times;</span>
+        <div class="food-details-header">
+            <img id="foodDetailsImage" src="" alt="">
+        </div>
+        <div class="food-details-body">
+            <h2 id="foodDetailsTitle"></h2>
+            <p id="foodDetailsDescription"></p>
+        </div>
+    </div>
+</div>
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+    <div class="login-form">
+        <span class="close" onclick="closeLoginModal()">&times;</span>
+        <h2>
+            <i class="fas fa-shield-halved"></i>
+            Login Administrador
+        </h2>
+        <div id="loginMessage" class="error-message"></div>
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="form-group">
+                <label for="email">
+                    <i class="fas fa-envelope"></i>
+                    Email
+                </label>
+                <input type="email" id="email" required placeholder="admin@elsalvador.com">
+            </div>
+            <div class="form-group">
+                <label for="password">
+                    <i class="fas fa-key"></i>
+                    Senha
+                </label>
+                <input type="password" id="password" required placeholder="••••••••">
+            </div>
+            <button type="submit" class="login-btn">
+                <i class="fas fa-sign-in-alt"></i>
+                Entrar no Sistema
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- Admin Panel Modal -->
+<div id="adminModal" class="modal">
+    <div class="admin-panel">
+        <span class="close" onclick="closeAdminModal()">&times;</span>
+        <h2>
+            <i class="fas fa-screwdriver-wrench"></i>
+            Painel do Administrador
+        </h2>
+        <div id="adminMessage" class="success-message"></div>
+        
+        <!-- URLs de Mídia -->
+        <div class="admin-section">
+            <h3>
+                <i class="fas fa-link"></i>
+                Gerenciar Links de Mídia
+            </h3>
+            <div class="form-group">
+                <label for="slideUrl">
+                    <i class="fas fa-presentation"></i>
+                    URL da Apresentação (Canva)
+                </label>
+                <input type="url" id="slideUrl" placeholder="https://www.canva.com/design/...">
+                <button class="login-btn" style="margin-top: 15px;" onclick="saveSlideUrl()">
+                    <i class="fas fa-save"></i>
+                    Salvar Apresentação
+                </button>
+            </div>
+
+            <div class="form-group" style="margin-top: 2rem;">
+                <label for="videoUrl">
+                    <i class="fab fa-youtube"></i>
+                    URL do Vídeo (YouTube)
+                </label>
+                <input type="url" id="videoUrl" placeholder="https://www.youtube.com/watch?v=...">
+                <button class="login-btn" style="margin-top: 15px;" onclick="saveVideoUrl()">
+                    <i class="fas fa-save"></i>
+                    Salvar Vídeo
+                </button>
+            </div>
+        </div>
+
+        <!-- Imagens das Comidas -->
+        <div class="admin-section">
+            <h3>
+                <i class="fas fa-images"></i>
+                Gerenciar Imagens das Comidas
+            </h3>
+            <p style="color: var(--gray); margin-bottom: 1.5rem; font-size: 1rem;">
+                <i class="fas fa-info-circle"></i>
+                Clique nas imagens abaixo para alterá-las
+            </p>
+            <div class="food-images-grid">
+                <div class="food-image-item">
+                    <img id="adminOurDishImage" src="" alt="Yuca Frita">
+                    <label>
+                        <i class="fas fa-star"></i>
+                        Yuca Frita (Nosso Prato)
+                    </label>
+                    <input type="file" accept="image/*" onchange="handleAdminImageUpload(event, 'ourDish')">
+                </div>
+                <div class="food-image-item">
+                    <img id="adminFoodImage1" src="" alt="Pupusas">
+                    <label>Pupusas</label>
+                    <input type="file" accept="image/*" onchange="handleAdminImageUpload(event, 'food1')">
+                </div>
+                <div class="food-image-item">
+                    <img id="adminFoodImage2" src="" alt="Sopa de Pata">
+                    <label>Sopa de Pata</label>
+                    <input type="file" accept="image/*" onchange="handleAdminImageUpload(event, 'food2')">
+                </div>
+                <div class="food-image-item">
+                    <img id="adminFoodImage3" src="" alt="Tamales">
+                    <label>Tamales</label>
+                    <input type="file" accept="image/*" onchange="handleAdminImageUpload(event, 'food3')">
+                </div>
+                <div class="food-image-item">
+                    <img id="adminFoodImage4" src="" alt="Atol de Elote">
+                    <label>Atol de Elote</label>
+                    <input type="file" accept="image/*" onchange="handleAdminImageUpload(event, 'food4')">
+                </div>
+                <div class="food-image-item">
+                    <img id="adminFoodImage5" src="" alt="Quesadilla">
+                    <label>Quesadilla</label>
+                    <input type="file" accept="image/*" onchange="handleAdminImageUpload(event, 'food5')">
+                </div>
+                <div class="food-image-item">
+                    <img id="adminFoodImage6" src="" alt="Empanadas">
+                    <label>Empanadas</label>
+                    <input type="file" accept="image/*" onchange="handleAdminImageUpload(event, 'food6')">
+                </div>
+            </div>
+        </div>
+
+        <button class="logout-btn" onclick="logout()">
+            <i class="fas fa-right-from-bracket"></i>
+            Sair do Painel
+        </button>
+    </div>
+</div>
+
+<!-- Slide Modal -->
+<div id="slideModal" class="modal">
+    <span class="close" onclick="closeSlideModal()">&times;</span>
+    <div class="modal-content">
+        <iframe id="slideFrame" src="" allowfullscreen></iframe>
+    </div>
+</div>
+
+<!-- Video Modal -->
+<div id="videoModal" class="modal">
+    <span class="close" onclick="closeVideoModal()">&times;</span>
+    <div class="modal-content">
+        <iframe id="videoFrame" src="" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    </div>
+</div>
+
+<!-- Firebase SDK -->
+<script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+    import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+    import { getFirestore, doc, setDoc, getDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+    import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js';
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyD8ULdiL2q7oUdzSJC8jurVGbwZ07ipu3Y",
+        authDomain: "elsalvadorespanholatividade.firebaseapp.com",
+        projectId: "elsalvadorespanholatividade",
+        storageBucket: "elsalvadorespanholatividade.firebasestorage.app",
+        messagingSenderId: "96532685707",
+        appId: "1:96532685707:web:ce08c457e843fead08058e",
+        measurementId: "G-TNRGGC33PT"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+    const storage = getStorage(app);
+
+    window.auth = auth;
+    window.db = db;
+    window.storage = storage;
+    window.signInWithEmailAndPassword = signInWithEmailAndPassword;
+    window.signOut = signOut;
+    window.doc = doc;
+    window.setDoc = setDoc;
+    window.getDoc = getDoc;
+    window.onAuthStateChanged = onAuthStateChanged;
+    window.ref = ref;
+    window.uploadBytes = uploadBytes;
+    window.getDownloadURL = getDownloadURL;
+
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            document.body.classList.add('admin-logged-in');
+        } else {
+            document.body.classList.remove('admin-logged-in');
+        }
+    });
+
+    loadAllImages();
+</script>
+
+<script>
+    // Food Details Data
+    const foodDetails = [
+        {
+            title: "Pupusas",
+            image: "foodImage1",
+            description: "As pupusas são o prato nacional de El Salvador e representam a essência da culinária salvadorenha. São tortilhas grossas feitas de milho ou arroz, recheadas tradicionalmente com queijo, feijão refrito, chicharrón (carne de porco moída) ou loroco (uma flor comestível nativa da região). A massa é cuidadosamente preparada e moldada à mão, criando um disco que é então recheado e selado antes de ser grelhado em uma chapa quente chamada 'comal'. O resultado é uma delícia crocante por fora e macia por dentro. São tradicionalmente servidas com curtido (salada de repolho fermentado com cenoura e cebola) e salsa roja (molho de tomate picante). As pupusas são tão importantes para a cultura salvadorenha que existe até um Dia Nacional da Pupusa, celebrado todo segundo domingo de novembro!"
+        },
+        {
+            title: "Sopa de Pata",
+            image: "foodImage2",
+            description: "A Sopa de Pata é um prato tradicional salvadorenho rico e substancioso, perfeito para ocasiões especiais e reuniões familiares. Como o nome sugere, é feita principalmente com patas de vaca que são cozidas lentamente até ficarem macias. A sopa inclui também grãos de milho, banana-da-terra, mandioca, ejotes (vagem verde), e é temperada com uma mistura especial de especiarias incluindo cominho, orégano e folhas de louro. O caldo é espesso e saboroso, com um tom avermelhado característico que vem do achiote (urucum) e tomates. É tradicionalmente servida bem quente, acompanhada de arroz branco, tortilhas de milho feitas à mão e limão para adicionar um toque cítrico. Este prato reconfortante é especialmente popular durante os finais de semana e feriados, sendo considerado uma iguaria que requer tempo e dedicação para preparar adequadamente."
+        },
+        {
+            title: "Tamales",
+            image: "foodImage3",
+            description: "Os tamales salvadorenhos são uma verdadeira obra de arte culinária, envolvendo um processo de preparação que é passado de geração em geração. Diferentemente dos tamales mexicanos, a versão salvadorenha tem características únicas. A massa é feita de milho moído finamente e misturada com caldo de galinha ou porco, criando uma textura mais suave e úmida. O recheio típico inclui carne de porco ou frango temperados com uma mistura complexa de especiarias, além de batatas, cenouras, azeitonas verdes, pimentões e passas, criando um equilíbrio perfeito entre salgado e levemente doce. Tudo isso é cuidadosamente embrulhado em folhas de bananeira, que não só mantêm a umidade durante o cozimento a vapor, mas também conferem um aroma e sabor sutis e distintivos. Os tamales são especialmente populares durante as festas de fim de ano, mas podem ser encontrados em mercados e vendedores de rua durante todo o ano. São frequentemente acompanhados de café preto ou chocolate quente."
+        },
+        {
+            title: "Atol de Elote",
+            image: "foodImage4",
+            description: "O Atol de Elote é uma bebida tradicional salvadorenha que combina a doçura natural do milho fresco com a cremosidade do leite, criando uma experiência reconfortante que evoca memórias da infância para muitos salvadorenhos. Feito com grãos de milho elote (milho jovem e doce) que são moídos e cozidos lentamente com leite, açúcar, canela em pau e às vezes uma pitada de sal para realçar os sabores. A consistência é cremosa e levemente espessa, semelhante a um mingau. Algumas variações incluem a adição de creme de leite para uma textura ainda mais rica. É tradicionalmente servido quente em canecas de barro, muitas vezes acompanhado de pães doces ou quesadillas salvadorenhas. O Atol de Elote é especialmente popular durante a temporada de milho fresco e em celebrações religiosas e festas tradicionais. É uma bebida que não só nutre o corpo, mas também aquece a alma, sendo um símbolo de hospitalidade e tradição familiar salvadorenha."
+        },
+        {
+            title: "Quesadilla Salvadorenha",
+            image: "foodImage5",
+            description: "A Quesadilla Salvadorenha é completamente diferente da versão mexicana e surpreende muitos estrangeiros por ser, na verdade, um bolo doce e não um prato salgado. Esta delícia tradicional é feita com uma massa que combina queijo duro salvadorenho (similar ao queijo parmesão), farinha de arroz, creme azedo, ovos, açúcar e manteiga. A textura é densa mas úmida, com uma crosta dourada por cima que é polvilhada generosamente com sementes de gergelim. O sabor é levemente adocicado com um toque salgado do queijo, criando um equilíbrio perfeito. Tradicionalmente, é assada em forma retangular e cortada em quadrados ou losangos. É o acompanhamento perfeito para o café da tarde ou da manhã, sendo frequentemente servida com uma xícara de café salvadorenho forte. A Quesadilla é especialmente popular durante celebrações familiares, aniversários e pode ser encontrada em todas as padarias do país. Muitas famílias salvadorenhas têm suas próprias receitas secretas passadas de geração em geração."
+        },
+        {
+            title: "Empanadas de Plátano",
+            image: "foodImage6",
+            description: "As Empanadas de Plátano são uma sobremesa ou lanche popular nas ruas de El Salvador, oferecendo uma explosão de sabor doce e textura crocante. Feitas com plátanos (bananas-da-terra) muito maduros, que são amassados e transformados em uma massa macia e naturalmente doce. Esta massa é então recheada tradicionalmente com leche poleada (um creme doce de leite espesso temperado com canela) ou frijoles colados (pasta de feijão preto adoçado). As empanadas são moldadas em formato de meia-lua, seladas cuidadosamente nas bordas e depois fritas em óleo quente até ficarem douradas e crocantes. O resultado é uma casca crocante que contrasta maravilhosamente com o recheio cremoso e doce do interior. São frequentemente polvilhadas com açúcar enquanto ainda estão quentes. Estas empanadas são especialmente populares como café da manhã de fim de semana ou lanche da tarde, vendidas por vendedores ambulantes e em mercados locais. Representam a criatividade da culinária salvadorenha em transformar ingredientes simples em delícias irresistíveis."
+        }
+    ];
+
+    // Modal Functions
+    function openLoginModal() {
+        document.getElementById('loginModal').style.display = 'block';
+    }
+
+    function closeLoginModal() {
+        document.getElementById('loginModal').style.display = 'none';
+        const messageDiv = document.getElementById('loginMessage');
+        messageDiv.style.display = 'none';
+    }
+
+    function openAdminModal() {
+        document.getElementById('adminModal').style.display = 'block';
+        loadAdminData();
+    }
+
+    function closeAdminModal() {
+        document.getElementById('adminModal').style.display = 'none';
+    }
+
+    function openSlideModal() {
+        loadSlideUrl();
+    }
+
+    function closeSlideModal() {
+        document.getElementById('slideModal').style.display = 'none';
+        document.getElementById('slideFrame').src = '';
+    }
+
+    function openVideoModal() {
+        loadVideoUrl();
+    }
+
+    function closeVideoModal() {
+        document.getElementById('videoModal').style.display = 'none';
+        document.getElementById('videoFrame').src = '';
+    }
+
+    // Food Details Modal
+    function openFoodDetails(index) {
+        const food = foodDetails[index];
+        const modal = document.getElementById('foodDetailsModal');
+        document.getElementById('foodDetailsImage').src = document.getElementById(food.image).src;
+        document.getElementById('foodDetailsTitle').textContent = food.title;
+        document.getElementById('foodDetailsDescription').textContent = food.description;
+        modal.style.display = 'block';
+    }
+
+    function closeFoodDetails() {
+        document.getElementById('foodDetailsModal').style.display = 'none';
+    }
+
+    // Login Handler
+    async function handleLogin(event) {
+        event.preventDefault();
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const messageDiv = document.getElementById('loginMessage');
+        const btn = event.target.querySelector('button');
+        const originalHTML = btn.innerHTML;
+
+        btn.innerHTML = '<div class="spinner"></div> Autenticando...';
+        btn.disabled = true;
+
+        try {
+            await window.signInWithEmailAndPassword(window.auth, email, password);
+            messageDiv.style.display = 'none';
+            closeLoginModal();
+            openAdminModal();
+            showNotification('Login realizado com sucesso!', 'success');
+        } catch (error) {
+            messageDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i> ' + getErrorMessage(error.code);
+            messageDiv.style.display = 'flex';
+        } finally {
+            btn.innerHTML = originalHTML;
+            btn.disabled = false;
+        }
+    }
+
+    function getErrorMessage(code) {
+        const messages = {
+            'auth/invalid-email': 'Email inválido',
+            'auth/user-disabled': 'Usuário desabilitado',
+            'auth/user-not-found': 'Usuário não encontrado',
+            'auth/wrong-password': 'Senha incorreta',
+            'auth/invalid-credential': 'Credenciais inválidas'
+        };
+        return messages[code] || 'Erro ao fazer login. Tente novamente.';
+    }
+
+    // Logout Handler
+    async function logout() {
+        try {
+            await window.signOut(window.auth);
+            closeAdminModal();
+            showNotification('Logout realizado com sucesso!', 'success');
+        } catch (error) {
+            showNotification('Erro ao fazer logout', 'error');
+        }
+    }
+
+    // Save Slide URL
+    async function saveSlideUrl() {
+        const url = document.getElementById('slideUrl').value;
+        const messageDiv = document.getElementById('adminMessage');
+
+        if (!url) {
+            showNotification('Por favor, insira uma URL válida', 'error');
+            return;
+        }
+
+        try {
+            await window.setDoc(window.doc(window.db, 'media', 'slideUrl'), {
+                url: url,
+                updatedAt: new Date().toISOString()
+            });
+            messageDiv.innerHTML = '<i class="fas fa-check-circle"></i> Apresentação salva com sucesso!';
+            messageDiv.style.display = 'flex';
+            setTimeout(() => messageDiv.style.display = 'none', 3000);
+            showNotification('Apresentação salva!', 'success');
+        } catch (error) {
+            showNotification('Erro ao salvar: ' + error.message, 'error');
+        }
+    }
+
+    // Save Video URL
+    async function saveVideoUrl() {
+        const url = document.getElementById('videoUrl').value;
+
+        if (!url) {
+            showNotification('Por favor, insira uma URL válida', 'error');
+            return;
+        }
+
+        let embedUrl = url;
+        if (url.includes('youtube.com/watch?v=')) {
+            const videoId = url.split('v=')[1].split('&')[0];
+            embedUrl = `https://www.youtube.com/embed/${videoId}`;
+        } else if (url.includes('youtu.be/')) {
+            const videoId = url.split('youtu.be/')[1].split('?')[0];
+            embedUrl = `https://www.youtube.com/embed/${videoId}`;
+        }
+
+        try {
+            await window.setDoc(window.doc(window.db, 'media', 'videoUrl'), {
+                url: embedUrl,
+                originalUrl: url,
+                updatedAt: new Date().toISOString()
+            });
+            const messageDiv = document.getElementById('adminMessage');
+            messageDiv.innerHTML = '<i class="fas fa-check-circle"></i> Vídeo salvo com sucesso!';
+            messageDiv.style.display = 'flex';
+            setTimeout(() => messageDiv.style.display = 'none', 3000);
+            showNotification('Vídeo salvo!', 'success');
+        } catch (error) {
+            showNotification('Erro ao salvar: ' + error.message, 'error');
+        }
+    }
+
+    // Load Admin Data
+    async function loadAdminData() {
+        try {
+            const slideDoc = await window.getDoc(window.doc(window.db, 'media', 'slideUrl'));
+            if (slideDoc.exists()) {
+                document.getElementById('slideUrl').value = slideDoc.data().url;
+            }
+
+            const videoDoc = await window.getDoc(window.doc(window.db, 'media', 'videoUrl'));
+            if (videoDoc.exists()) {
+                document.getElementById('videoUrl').value = videoDoc.data().originalUrl || videoDoc.data().url;
+            }
+
+            const imageIds = ['ourDish', 'food1', 'food2', 'food3', 'food4', 'food5', 'food6'];
+            for (const imageId of imageIds) {
+                const imageDoc = await window.getDoc(window.doc(window.db, 'images', imageId));
+                if (imageDoc.exists()) {
+                    const prefix = imageId === 'ourDish' ? 'OurDish' : 'Food' + imageId.replace('food', '');
+                    const adminImg = document.getElementById(`admin${prefix}Image`);
+                    if (adminImg) adminImg.src = imageDoc.data().url;
+                }
+            }
+        } catch (error) {
+            console.error('Load error:', error);
+        }
+    }
+
+    // Load and Open Slide
+    async function loadSlideUrl() {
+        try {
+            const slideDoc = await window.getDoc(window.doc(window.db, 'media', 'slideUrl'));
+            if (slideDoc.exists()) {
+                document.getElementById('slideFrame').src = slideDoc.data().url;
+                document.getElementById('slideModal').style.display = 'block';
+            } else {
+                showNotification('Nenhuma apresentação configurada ainda', 'error');
+            }
+        } catch (error) {
+            showNotification('Erro ao carregar apresentação', 'error');
+        }
+    }
+
+    // Load and Open Video
+    async function loadVideoUrl() {
+        try {
+            const videoDoc = await window.getDoc(window.doc(window.db, 'media', 'videoUrl'));
+if (videoDoc.exists()) {
+document.getElementById('videoFrame').src = videoDoc.data().url;
+document.getElementById('videoModal').style.display = 'block';
+} else {
+showNotification('Nenhum vídeo configurado ainda', 'error');
+}
+} catch (error) {
+showNotification('Erro ao carregar vídeo', 'error');
+}
+  }
+  // Handle Image Upload
+    async function handleImageUpload(file, imageId) {
+        if (!file) return;
+
+        try {
+            const storageRef = window.ref(window.storage, `food-images/${imageId}`);
+            await window.uploadBytes(storageRef, file);
+            const downloadURL = await window.getDownloadURL(storageRef);
+
+            await window.setDoc(window.doc(window.db, 'images', imageId), {
+                url: downloadURL,
+                updatedAt: new Date().toISOString()
+            });
+
+            return downloadURL;
+        } catch (error) {
+            console.error('Upload error:', error);
+            throw error;
+        }
+    }
+
+    // Handle Our Dish Image Upload
+    async function handleOurDishImageUpload(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        try {
+            showNotification('Enviando imagem...', 'info');
+            const downloadURL = await handleImageUpload(file, 'ourDish');
+            document.getElementById('ourDishImage').src = downloadURL;
+            showNotification('Imagem atualizada com sucesso!', 'success');
+        } catch (error) {
+            showNotification('Erro ao enviar imagem: ' + error.message, 'error');
+        }
+    }
+
+    // Handle Food Image Upload
+    async function handleFoodImageUpload(event, index) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        try {
+            showNotification('Enviando imagem...', 'info');
+            const downloadURL = await handleImageUpload(file, `food${index}`);
+            document.getElementById(`foodImage${index}`).src = downloadURL;
+            showNotification('Imagem atualizada com sucesso!', 'success');
+        } catch (error) {
+            showNotification('Erro ao enviar imagem: ' + error.message, 'error');
+        }
+    }
+
+    // Handle Admin Image Upload
+    async function handleAdminImageUpload(event, imageId) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const messageDiv = document.getElementById('adminMessage');
+
+        try {
+            messageDiv.innerHTML = '<div class="spinner"></div> Enviando imagem...';
+            messageDiv.style.display = 'flex';
+
+            const downloadURL = await handleImageUpload(file, imageId);
+
+            if (imageId === 'ourDish') {
+                document.getElementById('ourDishImage').src = downloadURL;
+                document.getElementById('adminOurDishImage').src = downloadURL;
+            } else {
+                const index = imageId.replace('food', '');
+                document.getElementById(`foodImage${index}`).src = downloadURL;
+                document.getElementById(`adminFoodImage${index}`).src = downloadURL;
+            }
+
+            messageDiv.innerHTML = '<i class="fas fa-check-circle"></i> Imagem atualizada!';
+            setTimeout(() => messageDiv.style.display = 'none', 3000);
+            showNotification('Imagem atualizada!', 'success');
+        } catch (error) {
+            messageDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Erro: ' + error.message;
+            messageDiv.style.display = 'flex';
+            messageDiv.className = 'error-message';
+        }
+    }
+
+    // Load All Images on Page Load
+    async function loadAllImages() {
+        const imageMapping = {
+            'ourDish': 'ourDishImage',
+            'food1': 'foodImage1',
+            'food2': 'foodImage2',
+            'food3': 'foodImage3',
+            'food4': 'foodImage4',
+            'food5': 'foodImage5',
+            'food6': 'foodImage6'
+        };
+
+        for (const [docId, elementId] of Object.entries(imageMapping)) {
+            try {
+                const imageDoc = await window.getDoc(window.doc(window.db, 'images', docId));
+                if (imageDoc.exists()) {
+                    const imageElement = document.getElementById(elementId);
+                    if (imageElement) {
+                        imageElement.src = imageDoc.data().url;
+                    }
+                }
+            } catch (error) {
+                console.error(`Error loading ${docId}:`, error);
+            }
+        }
+    }
+
+    // Notification System
+    function showNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.className = 'notification-toast';
+        
+        const icons = {
+            success: '✓',
+            error: '✕',
+            info: 'ℹ'
+        };
+
+        const colors = {
+            success: 'var(--success)',
+            error: 'var(--error)',
+            info: 'var(--primary)'
+        };
+        
+        notification.innerHTML = `
+            <div style="width: 40px; height: 40px; background: ${colors[type]}; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: bold;">
+                ${icons[type]}
+            </div>
+            <span>${message}</span>
+        `;
+        
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.style.animation = 'slideOutRight 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            setTimeout(() => {
+                if (document.body.contains(notification)) {
+                    document.body.removeChild(notification);
+                }
+            }, 500);
+        }, 3500);
+    }
+
+    // Close modals when clicking outside
+    window.onclick = function(event) {
+        const modals = ['loginModal', 'adminModal', 'slideModal', 'videoModal', 'foodDetailsModal'];
+        modals.forEach(modalId => {
+            const modal = document.getElementById(modalId);
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                if (modalId === 'slideModal') document.getElementById('slideFrame').src = '';
+                if (modalId === 'videoModal') document.getElementById('videoFrame').src = '';
+            }
+        });
+    }
+
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Header scroll effect
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > 100) {
+            header.style.padding = '0.7rem 5%';
+            header.style.background = 'rgba(28, 28, 30, 0.95)';
+        } else {
+            header.style.padding = '1rem 5%';
+            header.style.background = 'rgba(28, 28, 30, 0.8)';
+        }
+
+        lastScroll = currentScroll;
+    });
+
+    // Animate elements on scroll
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Observe cards on load
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.about-card, .food-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(60px)';
+            card.style.transition = `all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${index * 0.1}s`;
+            observer.observe(card);
+        });
+    });
+
+    // Parallax effect for hero
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const hero = document.querySelector('.hero');
+                const scrolled = window.pageYOffset;
+                if (hero && scrolled < window.innerHeight) {
+                    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                    const content = hero.querySelector('.hero-content');
+                    if (content) {
+                        content.style.opacity = Math.max(0, 1 - (scrolled / 600));
+                    }
+                }
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+
+    // Page load animation
+    window.addEventListener('load', () => {
+        document.body.style.opacity = '0';
+        setTimeout(() => {
+            document.body.style.transition = 'opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            document.body.style.opacity = '1';
+        }, 100);
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeLoginModal();
+            closeAdminModal();
+            closeSlideModal();
+            closeVideoModal();
+            closeFoodDetails();
+        }
+    });
+
+    // Progressive image loading
+    document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('load', function() {
+            this.style.opacity = '0';
+            this.style.transition = 'opacity 0.6s ease';
+            setTimeout(() => this.style.opacity = '1', 50);
+        });
+    });
+
+    // Detect reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (prefersReducedMotion) {
+        document.querySelectorAll('*').forEach(element => {
+            const computedStyle = window.getComputedStyle(element);
+            if (computedStyle.animation !== 'none') {
+                element.style.animation = 'none';
+            }
+            if (computedStyle.transition !== 'none') {
+                element.style.transition = 'none';
+            }
+        });
+    }
+
+    // Touch feedback for mobile
+    if ('ontouchstart' in window) {
+        document.querySelectorAll('button, .food-card, .about-card, .media-btn').forEach(element => {
+            element.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.95)';
+            }, { passive: true });
+            
+            element.addEventListener('touchend', function() {
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            }, { passive: true });
+        });
+    }
+
+    // Haptic feedback for supported devices
+    function hapticFeedback() {
+        if (navigator.vibrate) {
+            navigator.vibrate(10);
+        }
+    }
+
+    document.querySelectorAll('button, .food-card').forEach(element => {
+        element.addEventListener('click', hapticFeedback);
+    });
+
+    // Network status indicator
+    window.addEventListener('online', () => {
+        showNotification('Conexão restaurada!', 'success');
+    });
+
+    window.addEventListener('offline', () => {
+        showNotification('Sem conexão com a internet', 'error');
+    });
+
+    // Flag interactive animation on mouse move
+    const flag = document.querySelector('.flag');
+    if (flag) {
+        flag.addEventListener('mousemove', (e) => {
+            const rect = flag.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            
+            flag.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+        });
+        
+        flag.addEventListener('mouseleave', () => {
+            flag.style.transform = '';
+        });
+    }
+
+    // Add particle effect to hero (optional enhancement)
+    function createParticles() {
+        const hero = document.querySelector('.hero');
+        if (!hero) return;
+        
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.style.cssText = `
+                position: absolute;
+                width: ${Math.random() * 4 + 2}px;
+                height: ${Math.random() * 4 + 2}px;
+                background: radial-gradient(circle, var(--primary), transparent);
+                border-radius: 50%;
+                top: ${Math.random() * 100}%;
+                left: ${Math.random() * 100}%;
+                opacity: ${Math.random() * 0.5 + 0.2};
+                animation: floatParticle ${Math.random() * 10 + 10}s linear infinite;
+                pointer-events: none;
+            `;
+            hero.appendChild(particle);
+        }
+    }
+
+    // Add particle animation style
+    const particleStyle = document.createElement('style');
+    particleStyle.textContent = `
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.5;
+            }
+            90% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(${Math.random() * 200 - 100}px);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(particleStyle);
+    createParticles();
+
+    // Console art
+    console.log('%c🇸🇻 El Salvador - Cultura e Gastronomia 🇸🇻', 
+        'color: #5AC8FA; font-size: 28px; font-weight: bold; text-shadow: 0 0 10px rgba(90, 200, 250, 0.5);');
+    console.log('%c✨ Design Dark Theme - Animações Apple iOS - Firebase Integration', 
+        'color: #8B7355; font-size: 18px; font-weight: 600;');
+    console.log('%c🍟 Yuca Frita - Molho de Tomate - Queijo (Opcional) 🍟', 
+        'background: linear-gradient(135deg, #5AC8FA, #007AFF); color: white; padding: 12px 24px; border-radius: 8px; font-size: 16px; font-weight: bold;');
+    console.log('%c❤️  Desenvolvido com dedicação para o projeto escolar', 
+        'color: #FF453A; font-size: 14px;');
+
+    // Performance monitoring
+    window.addEventListener('load', () => {
+        const loadTime = performance.now();
+        console.log(`⚡ Página carregada em ${(loadTime / 1000).toFixed(2)}s`);
+        
+        if (loadTime > 3000) {
+            console.warn('⚠️  Tempo de carregamento lento. Considere otimizar as imagens.');
+        } else {
+            console.log('✓ Excelente performance de carregamento!');
+        }
+    });
+
+    // Log initialization
+    console.log('🎉 Site inicializado com sucesso!');
+    console.log('📱 Design Responsivo: ✓');
+    console.log('🎨 Tema Dark com Azul Claro/Marrom/Branco: ✓');
+    console.log('✨ Animações iOS Fluidas: ✓');
+    console.log('🇸🇻 Bandeira Interativa e Viva: ✓');
+    console.log('🔥 Firebase Integration: ✓');
+    console.log('🍽️  Cards Interativos de Comidas: ✓');
+    console.log('🔐 Painel Admin com Upload de Imagens: ✓');
+    console.log('🎬 Sistema de Mídia (Canva + YouTube): ✓');
+    console.log('✅ Pronto para usar!');
+</script>
