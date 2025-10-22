@@ -3,95 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Salvador - Cultura e Gastronomia (CMS Completo)</title>
+    <title>El Salvador - Cultura e Gastronomia</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
-        /* ------------------------------------------- */
-        /* 1. VARIÁVEIS, FONTES E RESET (IOS/SF PRO) */
-        /* ------------------------------------------- */
         @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700;800;900&display=swap');
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            /* Suavização e Transparência de Toque (Efeito iOS) */
-            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --primary: #5AC8FA;
+            --secondary: #8B7355;
+            --accent: #007AFF;
+            --dark: #1C1C1E;
+            --darker: #0A0A0A;
+            --card-bg: #2C2C2E;
+            --light-text: #FFFFFF;
+            --gray: #98989D;
+            --success: #30D158;
+            --error: #FF453A;
+            --warning: #FFD60A;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            background: var(--darker);
+            color: var(--light-text);
+            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
-        :root {
-            /* Cores Principais do Tema iOS Dark */
-            --primary: #5AC8FA; /* Azul Claro (Sky Blue) - Usado em links e destaques */
-            --secondary: #8B7355; /* Marrom-Dourado (Detalhes Gastronômicos) */
-            --accent: #007AFF; /* Azul Escuro (Intense Blue) */
-            --dark: #1C1C1E; /* Background de Elementos (Cards, Inputs) */
-            --darker: #0A0A0A; /* Fundo Principal */
-            --card-bg: #2C2C2E; /* Background de Cartões/Modals */
-            --light-text: #FFFFFF;
-            --gray: #98989D; /* Texto Secundário */
-            --success: #30D158;
-            --error: #FF453A;
-            --warning: #FFD60A;
-            --font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
-            --nav-height: 80px;
-        }
-
-        body {
-            font-family: var(--font-family);
-            background: var(--darker);
-            color: var(--light-text);
-            overflow-x: hidden;
-            transition: background 0.5s;
-        }
-
-        /* ------------------------------------------- */
-        /* 2. ANIMAÇÕES GERAIS (FLUIDEZ IOS) */
-        /* ------------------------------------------- */
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translate3d(0, 40px, 0); }
-            to { opacity: 1; transform: translate3d(0, 0, 0); }
-        }
-        @keyframes zoomIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        @keyframes slideInUp {
-            from { transform: translate3d(0, 50px, 0); opacity: 0; }
-            to { transform: translate3d(0, 0, 0); opacity: 1; }
-        }
-        @keyframes rotate { 100% { transform: rotate(360deg); } }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        @keyframes shine {
-            0% { transform: translateX(-100%); }
-            60% { transform: translateX(100%); }
-            100% { transform: translateX(100%); }
-        }
-        @keyframes textGlow {
-            0%, 100% { text-shadow: 0 0 50px rgba(90, 200, 250, 0.5); }
-            50% { text-shadow: 0 0 100px rgba(90, 200, 250, 0.8); }
-        }
-        @keyframes emblemPulse {
-            0%, 100% { box-shadow: 0 10px 40px rgba(255, 215, 0, 0.4); }
-            50% { box-shadow: 0 15px 50px rgba(255, 215, 0, 0.6); }
-        }
-
-        /* ------------------------------------------- */
-        /* 3. HEADER (NAVEGAÇÃO FIXA E TRANSLÚCIDA) */
-        /* ------------------------------------------- */
+        /* Header */
         header {
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            background: rgba(10, 10, 10, 0.8); /* Fundo quase preto */
-            backdrop-filter: saturate(180%) blur(20px); /* Efeito Blur iOS */
+            background: rgba(28, 28, 30, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
             -webkit-backdrop-filter: saturate(180%) blur(20px);
             border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -102,7 +55,6 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 5%;
-            height: var(--nav-height);
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -110,7 +62,7 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background: linear-gradient(135deg, var(--primary), #007AFF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -118,15 +70,20 @@
             align-items: center;
             gap: 12px;
             letter-spacing: -0.5px;
-            cursor: default;
         }
 
-        /* Links de Navegação */
+        .logo i {
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--primary), #007AFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: flagWave 3s ease-in-out infinite;
+        }
+
         .nav-links {
             display: flex;
             gap: 2.5rem;
             list-style: none;
-            transition: all 0.4s;
         }
 
         .nav-links a {
@@ -145,7 +102,7 @@
             left: 50%;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            background: linear-gradient(90deg, var(--primary), #007AFF);
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             transform: translateX(-50%);
         }
@@ -158,8 +115,31 @@
             color: var(--primary);
         }
 
-        /* Botão Padrão (Simulando Apple Button) */
-        .app-btn {
+        .language-selector {
+            display: flex;
+            gap: 0.5rem;
+            margin-right: 1rem;
+        }
+
+        .lang-btn {
+            background: transparent;
+            color: var(--gray);
+            border: 1px solid var(--gray);
+            padding: 6px 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .admin-btn {
+            background: linear-gradient(135deg, var(--primary), #007AFF);
             color: white;
             padding: 10px 24px;
             border-radius: 20px;
@@ -171,110 +151,44 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            text-decoration: none;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
-            user-select: none;
-        }
-
-        .app-btn:hover {
-            transform: translateY(-2px) scale(1.02);
-        }
-        
-        .app-btn:active {
-            transform: translateY(0) scale(0.98);
-        }
-        
-        #admin-login-btn {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
             box-shadow: 0 8px 24px rgba(90, 200, 250, 0.3);
         }
 
-        #admin-logout-btn, #edit-button, #save-button, #cancel-button {
-            display: none; /* Controlado pelo JS */
+        .admin-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 12px 32px rgba(90, 200, 250, 0.4);
         }
 
-        #admin-logout-btn {
-            background: linear-gradient(135deg, var(--error), #CC0000);
-            box-shadow: 0 8px 24px rgba(255, 69, 58, 0.3);
-        }
-        
-        .edit-controls {
-            display: none;
-            align-items: center;
-            gap: 15px;
-            transition: opacity 0.3s;
+        .admin-btn:active {
+            transform: translateY(0) scale(0.98);
         }
 
-        /* Seletor de Idioma (Segmented Control Style) */
-        .lang-selector {
-            display: flex;
-            background: var(--dark);
-            border-radius: 12px;
-            padding: 4px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .lang-btn {
-            background: transparent;
-            color: var(--gray);
-            border: none;
-            padding: 8px 14px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
-            user-select: none;
-        }
-
-        .lang-btn.active {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            box-shadow: 0 4px 12px rgba(90, 200, 250, 0.3);
-        }
-
-
-        /* ------------------------------------------- */
-        /* 4. MAIN CONTENT (SEÇÕES E HERO) */
-        /* ------------------------------------------- */
-        main {
-            padding-top: var(--nav-height);
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        section {
-            padding: 120px 5%;
-            position: relative;
-            min-height: 80vh;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        section:last-child {
-            border-bottom: none;
-            min-height: 50vh;
-        }
-
-        /* Hero Section (Bandeira 3D) */
+        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            position: relative;
             overflow: hidden;
             background: linear-gradient(135deg, #0A0A0A 0%, #1C1C1E 100%);
         }
 
-        .hero::before { /* Animação de fundo sutil */
+        .hero::before {
             content: '';
             position: absolute;
             width: 150%;
             height: 150%;
             background: radial-gradient(circle, rgba(90, 200, 250, 0.15) 0%, transparent 70%);
             animation: rotate 20s linear infinite;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            padding-top: 80px;
         }
 
         .flag-container {
@@ -296,67 +210,141 @@
             transform-style: preserve-3d;
             transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             border: 2px solid rgba(255, 255, 255, 0.1);
+            position: relative;
         }
-        
-        /* Stripes da bandeira */
-        .flag-stripe { height: 33.33%; position: relative; }
-        .blue { background: linear-gradient(135deg, #0047AB 0%, #003D96 100%); }
+
+        .flag:hover {
+            transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+            box-shadow: 0 40px 110px rgba(0, 0, 0, 0.7),
+                        0 0 120px rgba(90, 200, 250, 0.5);
+        }
+
+        .flag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shine 3s ease-in-out infinite;
+        }
+
+        .flag-stripe {
+            height: 33.33%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flag-stripe::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            animation: wave 4s ease-in-out infinite;
+        }
+
+        .blue {
+            background: linear-gradient(135deg, #0047AB 0%, #003D96 100%);
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
         .white {
             background: linear-gradient(135deg, #FFFFFF 0%, #F0F0F0 100%);
-            display: flex; align-items: center; justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-        
-        .emblem { /* Emblema do meio */
-            width: 100px; height: 100px; background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-weight: 800; color: #0047AB; font-size: 2rem;
-            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.4), inset 0 -5px 15px rgba(0, 0, 0, 0.2);
+
+        .emblem {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: #0047AB;
+            font-size: 2rem;
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.4),
+                        inset 0 -5px 15px rgba(0, 0, 0, 0.2);
             animation: emblemPulse 4s ease-in-out infinite;
             border: 3px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+        }
+
+        .emblem::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 20%;
+            width: 30%;
+            height: 30%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent);
+            border-radius: 50%;
+            animation: shimmer 3s ease-in-out infinite;
         }
 
         .hero h1 {
-            font-size: 5.5rem; margin-bottom: 1.5rem; font-weight: 800; letter-spacing: -3px;
+            font-size: 5.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -3px;
             background: linear-gradient(135deg, var(--primary) 0%, #007AFF 50%, var(--primary) 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             text-shadow: 0 0 80px rgba(90, 200, 250, 0.5);
             animation: textGlow 3s ease-in-out infinite;
         }
 
         .hero p {
-            font-size: 1.8rem; font-weight: 400; color: var(--gray);
-            letter-spacing: -0.5px; opacity: 0.9;
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--gray);
+            letter-spacing: -0.5px;
+            opacity: 0.9;
         }
 
-        /* Títulos e Textos Gerais */
-        .section-header { text-align: center; margin-bottom: 5rem; }
+        /* Section Styles */
+        section {
+            padding: 120px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+        }
 
         .section-title {
-            font-size: 4rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -2px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, var(--primary) 0%, #007AFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeIn 1s ease;
         }
 
         .section-subtitle {
-            font-size: 1.4rem; color: var(--gray); font-weight: 400;
+            font-size: 1.4rem;
+            color: var(--gray);
+            font-weight: 400;
         }
 
-        .content-editable { /* Estilo para o modo de edição */
-            border: 2px solid transparent;
-            padding: 5px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            outline: none;
-            min-height: 25px; /* Garante que o campo é visível */
-        }
-
-        .content-editable:focus {
-            border-color: var(--warning);
-            background: rgba(255, 214, 10, 0.1);
-            box-shadow: 0 0 0 4px rgba(255, 214, 10, 0.3);
-        }
-
-        /* Sobre Cards */
+        /* About Cards */
         .about-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -364,958 +352,2004 @@
         }
 
         .about-card {
-            background: var(--card-bg); padding: 3rem; border-radius: 28px;
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 28px;
             transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative; overflow: hidden;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(90, 200, 250, 0.05) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .about-card:hover::before {
+            opacity: 1;
         }
 
         .about-card:hover {
             transform: translateY(-12px);
             border-color: rgba(90, 200, 250, 0.3);
-            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4), 0 0 60px rgba(90, 200, 250, 0.2);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4),
+                        0 0 60px rgba(90, 200, 250, 0.2);
         }
 
-        /* Seção Gastronomia (Special Dish) */
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), #007AFF);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 10px 30px rgba(90, 200, 250, 0.3);
+            animation: iconFloat 4s ease-in-out infinite;
+        }
+
+        .about-card h3 {
+            color: var(--light-text);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .about-card p {
+            color: var(--gray);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Food Section */
+        .food-section {
+            background: var(--dark);
+            border-radius: 48px;
+            padding: 5rem 4rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .food-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(90, 200, 250, 0.1) 0%, transparent 70%);
+            animation: rotate 25s linear infinite;
+        }
+
+        /* Nossa Comida Especial */
         .special-group-section {
-            background: linear-gradient(135deg, rgba(139, 115, 85, 0.15) 0%, rgba(90, 200, 250, 0.1) 100%);
-            border-radius: 40px; padding: 4rem; border: 2px solid rgba(90, 200, 250, 0.2);
-            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4);
             margin-bottom: 6rem;
+            background: linear-gradient(135deg, rgba(139, 115, 85, 0.15) 0%, rgba(90, 200, 250, 0.1) 100%);
+            border-radius: 40px;
+            padding: 4rem;
+            border: 2px solid rgba(90, 200, 250, 0.2);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4),
+                        inset 0 0 80px rgba(90, 200, 250, 0.05);
+        }
+
+        .special-group-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(90, 200, 250, 0.05) 50%, transparent 70%);
+            animation: shine 6s ease-in-out infinite;
+        }
+
+        .special-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .special-title h2 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            text-shadow: 0 0 40px rgba(90, 200, 250, 0.3);
+        }
+
+        .special-title .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--secondary), #6D5744);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 100px;
+            font-size: 1rem;
+            font-weight: 700;
+            animation: pulse 3s infinite;
+            box-shadow: 0 10px 40px rgba(139, 115, 85, 0.4);
         }
 
         .our-dish-card {
-            background: var(--card-bg); border-radius: 36px; overflow: hidden;
+            background: var(--card-bg);
+            border-radius: 36px;
+            overflow: hidden;
             box-shadow: 0 30px 90px rgba(0, 0, 0, 0.5);
-            display: grid; grid-template-columns: 1fr 1fr;
-            max-width: 1100px; margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            max-width: 1100px;
+            margin: 0 auto;
             transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .our-dish-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(90, 200, 250, 0.05) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            pointer-events: none;
+        }
+
+        .our-dish-card:hover::before {
+            opacity: 1;
         }
 
         .our-dish-card:hover {
             transform: scale(1.02) translateY(-8px);
+            box-shadow: 0 40px 110px rgba(0, 0, 0, 0.6),
+                        0 0 80px rgba(90, 200, 250, 0.2);
         }
-        
-        .our-dish-image { position: relative; overflow: hidden; height: 100%; }
+
+        .our-dish-image {
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
         .our-dish-image img {
-            width: 100%; height: 100%; object-fit: cover;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        .edit-image-btn { /* Botão de upload em modo Admin */
-            position: absolute; top: 20px; right: 20px; background: rgba(0, 0, 0, 0.7);
-            color: white; border: none; padding: 12px 20px; border-radius: 100px;
-            cursor: pointer; display: none; /* Escondido por padrão */
-            transition: all 0.4s; backdrop-filter: blur(10px);
+        .our-dish-card:hover .our-dish-image img {
+            transform: scale(1.1) rotate(2deg);
+        }
+
+        .edit-image-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 100px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: none;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             z-index: 10;
         }
 
-        .edit-image-btn:hover { background: var(--primary); }
+        .edit-image-btn:hover {
+            background: var(--primary);
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(90, 200, 250, 0.4);
+        }
 
-        .our-dish-content { padding: 4rem; }
+        .our-dish-content {
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .our-dish-content h3 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .our-dish-content .highlight {
+            background: linear-gradient(135deg, var(--primary), #007AFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .our-dish-content p {
+            color: var(--gray);
+            line-height: 1.9;
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+        }
 
         .ingredients-list {
-            background: rgba(90, 200, 250, 0.05); border-radius: 20px;
-            padding: 2rem; margin-top: 2rem;
+            background: rgba(90, 200, 250, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
             border: 1px solid rgba(90, 200, 250, 0.2);
         }
 
+        .ingredients-list h4 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ingredients-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .ingredients-list li {
+            color: var(--light-text);
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+        }
+
+        .ingredients-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .ingredients-list li:hover {
+            padding-left: 2.5rem;
+            color: var(--primary);
+        }
+
+        .optional-note {
+            color: var(--secondary);
+            font-style: italic;
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
         /* Food Grid */
+        .food-grid-title {
+            color: var(--light-text);
+            font-size: 2.5rem;
+            margin: 5rem 0 3rem;
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
         .food-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
             gap: 2.5rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
         }
 
         .food-card {
-            background: var(--card-bg); border-radius: 28px; overflow: hidden;
+            background: var(--card-bg);
+            border-radius: 28px;
+            overflow: hidden;
             transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            cursor: pointer; position: relative;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .food-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(90, 200, 250, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .food-card:hover::before {
+            opacity: 1;
         }
 
         .food-card:hover {
             transform: translateY(-12px);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+            border-color: rgba(90, 200, 250, 0.4);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5),
+                        0 0 60px rgba(90, 200, 250, 0.2);
         }
 
-        .food-image-container { height: 300px; overflow: hidden; }
+        .food-image-container {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
 
-        /* Mídias */
+        .food-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .food-card:hover .food-image {
+            transform: scale(1.15);
+        }
+
+        .food-content {
+            padding: 2.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .food-content h3 {
+            color: var(--light-text);
+            margin-bottom: 1rem;
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .food-content p {
+            color: var(--gray);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Interactive Food Details Modal */
+        .food-details-modal {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(20px);
+            animation: fadeIn 0.4s ease;
+        }
+
+        .food-details-content {
+            position: relative;
+            margin: 2% auto;
+            width: 90%;
+            max-width: 1200px;
+            max-height: 90vh;
+            overflow-y: auto;
+            background: var(--card-bg);
+            border-radius: 36px;
+            animation: slideInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .food-details-header {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .food-details-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .food-details-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(to top, var(--card-bg), transparent);
+        }
+
+        .food-details-body {
+            padding: 3rem 4rem 4rem;
+        }
+
+        .food-details-body h2 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+        }
+
+        .food-details-body p {
+            color: var(--gray);
+            line-height: 1.9;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Media Section */
         .media-section {
-            background: var(--card-bg); border-radius: 40px;
-            padding: 5rem 3rem; border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--card-bg);
+            border-radius: 40px;
+            padding: 5rem 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .media-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(90, 200, 250, 0.1) 0%, transparent 60%);
+            animation: rotate 30s linear infinite;
         }
 
         .media-buttons {
-            display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 1;
         }
-        
-        /* Modals (Estrutura iOS) */
+
+        .media-btn {
+            padding: 20px 48px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .media-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .media-btn:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .slide-btn {
+            background: linear-gradient(135deg, var(--secondary), #6D5744);
+            color: white;
+            box-shadow: 0 10px 40px rgba(139, 115, 85, 0.3);
+        }
+
+        .video-btn {
+            background: linear-gradient(135deg, #FF0000, #CC0000);
+            color: white;
+            box-shadow: 0 10px 40px rgba(255, 0, 0, 0.3);
+        }
+
+        .media-btn:hover {
+            transform: translateY(-6px) scale(1.05);
+        }
+
+        .media-btn:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .media-btn i {
+            font-size: 1.4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Conclusion Section */
+        .conclusion-section {
+            background: linear-gradient(135deg, rgba(139, 115, 85, 0.15) 0%, rgba(90, 200, 250, 0.1) 100%);
+            border-radius: 40px;
+            padding: 5rem 4rem;
+            border: 2px solid rgba(90, 200, 250, 0.2);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .conclusion-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(90, 200, 250, 0.05) 50%, transparent 70%);
+            animation: shine 6s ease-in-out infinite;
+        }
+
+        .conclusion-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .conclusion-title {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+        }
+
+        .conclusion-text {
+            font-size: 1.3rem;
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        .conclusion-image {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 24px;
+            overflow: hidden;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .conclusion-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Modal Styles */
         .modal {
-            display: none; position: fixed; z-index: 3000;
-            left: 0; top: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(20px);
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(20px);
             animation: fadeIn 0.4s ease;
         }
 
         .modal-content {
-            position: relative; margin: 3% auto; width: 90%; max-width: 1200px;
-            background: var(--card-bg); border-radius: 36px; overflow: hidden;
+            position: relative;
+            margin: 3% auto;
+            width: 90%;
+            max-width: 1200px;
+            background: var(--card-bg);
+            border-radius: 36px;
+            overflow: hidden;
             animation: slideInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .close { /* Botão de fechar */
-            position: absolute; top: 24px; right: 24px; font-size: 32px;
-            color: white; cursor: pointer; z-index: 2001;
-            background: rgba(0, 0, 0, 0.7); width: 50px; height: 50px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            transition: all 0.4s; backdrop-filter: blur(10px);
-        }
-        
-        /* Login Form */
-        .login-form {
-            background: var(--card-bg); padding: 4rem; border-radius: 36px;
-            max-width: 480px; width: 90%; margin: 10% auto;
-            box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6);
-            animation: zoomIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            border: 1px solid rgba(255, 255, 255, 0.1); position: relative;
-        }
-        
-        /* Input Field Style (iOS Dark) */
-        .form-group input {
-            width: 100%; padding: 16px 20px;
-            border: 1.5px solid rgba(255, 255, 255, 0.1); border-radius: 16px;
-            font-size: 1.05rem; transition: all 0.4s;
-            background: rgba(255, 255, 255, 0.05); color: var(--light-text);
-        }
-        
-        .form-group input:focus {
-            outline: none; border-color: var(--primary);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 0 4px rgba(90, 200, 250, 0.1);
-            transform: translateY(-2px);
+        .close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+            cursor: pointer;
+            z-index: 2001;
+            background: rgba(0, 0, 0, 0.7);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        /* Painel Admin */
+        .close:hover {
+            background: var(--error);
+            transform: rotate(90deg) scale(1.1);
+            box-shadow: 0 8px 32px rgba(255, 69, 58, 0.4);
+        }
+
+        .modal iframe {
+            width: 100%;
+            height: 80vh;
+            border: none;
+        }
+
+        /* Login Form */
+        .login-form {
+            background: var(--card-bg);
+            padding: 4rem;
+            border-radius: 28px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-form::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(90, 200, 250, 0.1) 0%, transparent 60%);
+            animation: rotate 25s linear infinite;
+        }
+
+        .login-form h2 {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: var(--primary);
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--light-text);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1.2rem 1.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.3);
+            color: var(--light-text);
+            font-size: 1rem;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(90, 200, 250, 0.2);
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--primary), #007AFF);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            margin-top: 1rem;
+            box-shadow: 0 10px 40px rgba(90, 200, 250, 0.3);
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(90, 200, 250, 0.4);
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Admin Panel */
         .admin-panel {
-            display: none; background: var(--card-bg); padding: 4rem;
-            border-radius: 36px; max-width: 1200px; width: 90%;
-            margin: 3% auto; box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6);
-            max-height: 85vh; overflow-y: auto; border: 1px solid rgba(255, 255, 255, 0.1);
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--darker);
+            z-index: 4000;
+            overflow-y: auto;
+        }
+
+        .admin-header {
+            background: var(--dark);
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .admin-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .admin-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .admin-btn {
+            padding: 12px 24px;
+            border-radius: 16px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logout-btn {
+            background: var(--error);
+            color: white;
+        }
+
+        .save-btn {
+            background: var(--success);
+            color: white;
+        }
+
+        .admin-content {
+            padding: 3rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .admin-section {
-            background: rgba(255, 255, 255, 0.03); padding: 2.5rem;
-            border-radius: 24px; margin-bottom: 2.5rem;
+            background: var(--card-bg);
+            border-radius: 28px;
+            padding: 3rem;
+            margin-bottom: 3rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
-        .food-images-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 2rem;
+
+        .admin-section h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        .food-image-item {
-            position: relative; border-radius: 20px; overflow: hidden;
-            aspect-ratio: 1; border: 2px solid rgba(255, 255, 255, 0.1);
+        .video-embed-input {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .video-embed-input input {
+            flex: 1;
+            padding: 1.2rem 1.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.3);
+            color: var(--light-text);
+            font-size: 1rem;
+        }
+
+        .video-embed-input button {
+            padding: 1.2rem 2rem;
+            background: linear-gradient(135deg, var(--primary), #007AFF);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            font-weight: 600;
             cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .food-image-item input[type="file"] {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0; cursor: pointer;
-        }
-        
-        .food-image-item img {
-            width: 100%; height: 100%; object-fit: cover;
+        .video-embed-input button:hover {
+            transform: translateY(-2px);
         }
 
-        /* ------------------------------------------- */
-        /* 5. RESPONSIVIDADE (IOS ADAPTATIVO) */
-        /* ------------------------------------------- */
+        /* Footer */
+        footer {
+            background: var(--dark);
+            padding: 4rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--primary), #007AFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes wave {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(10px);
+            }
+        }
+
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 200%;
+            }
+        }
+
+        @keyframes flagWave {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(5deg);
+            }
+            75% {
+                transform: rotate(-5deg);
+            }
+        }
+
+        @keyframes textGlow {
+            0%, 100% {
+                text-shadow: 0 0 80px rgba(90, 200, 250, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 100px rgba(90, 200, 250, 0.8);
+            }
+        }
+
+        @keyframes iconFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes emblemPulse {
+            0%, 100% {
+                box-shadow: 0 10px 40px rgba(255, 215, 0, 0.4),
+                            inset 0 -5px 15px rgba(0, 0, 0, 0.2);
+            }
+            50% {
+                box-shadow: 0 15px 50px rgba(255, 215, 0, 0.6),
+                            inset 0 -5px 15px rgba(0, 0, 0, 0.3);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes shimmer {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
         @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 4.5rem;
+            }
+            .section-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            .section-title {
+                font-size: 3rem;
+            }
             .our-dish-card {
                 grid-template-columns: 1fr;
             }
-            .our-dish-content {
-                padding: 3rem;
+            .food-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             }
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 3.5rem; }
-            .hero p { font-size: 1.4rem; }
-            .section-title { font-size: 3rem; }
-            .nav-links { display: none; } /* Ocultar links em telas pequenas */
-            .our-dish-content h3 { font-size: 2rem; }
-            .admin-panel { padding: 2rem; }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .section-title {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .flag {
+                width: 300px;
+                height: 200px;
+            }
+            .food-details-body {
+                padding: 2rem;
+            }
+            .food-details-body h2 {
+                font-size: 2.5rem;
+            }
+            .admin-section {
+                padding: 2rem;
+            }
+            .media-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .media-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
         }
 
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .about-card, .food-card {
+                padding: 2rem;
+            }
+            .flag {
+                width: 250px;
+                height: 167px;
+            }
+            .emblem {
+                width: 70px;
+                height: 70px;
+                font-size: 1.5rem;
+            }
+            .hero p {
+                font-size: 1.4rem;
+            }
+            .section-subtitle {
+                font-size: 1.2rem;
+            }
+            .login-form {
+                padding: 2rem;
+            }
+        }
     </style>
-    </head>
+</head>
 <body>
-
+    <!-- Header -->
     <header>
         <nav>
-            <div class="logo"><i class="fas fa-flag"></i> El Salvador</div>
-            
-            <ul class="nav-links">
-                <li><a href="#hero" class="scroll-link" data-lang-key="nav_home">Início</a></li>
-                <li><a href="#about" class="scroll-link" data-lang-key="nav_about">Sobre</a></li>
-                <li><a href="#food" class="scroll-link" data-lang-key="nav_food">Gastronomia</a></li>
-                <li><a href="#media" class="scroll-link" data-lang-key="nav_media">Mídia</a></li>
-            </ul>
-
-            <div class="nav-right-group">
-                
-                <div class="edit-controls" id="edit-controls">
-                    <button id="edit-button" class="app-btn" data-lang-key="btn_edit"><i class="fas fa-pencil-alt"></i> Editar</button>
-                    <button id="save-button" class="app-btn" style="background: var(--success);" data-lang-key="btn_save"><i class="fas fa-check"></i> Salvar</button>
-                    <button id="cancel-button" class="app-btn" style="background: var(--error);" data-lang-key="btn_cancel"><i class="fas fa-times"></i> Cancelar</button>
-                </div>
-                
-                <div class="lang-selector">
-                    <button class="lang-btn active" data-lang="pt">PT</button>
-                    <button class="lang-btn" data-lang="en">EN</button>
-                </div>
-
-                <button id="admin-login-btn" class="app-btn"><i class="fas fa-user-shield"></i> <span data-lang-key="btn_login">Admin</span></button>
-                <button id="admin-logout-btn" class="app-btn"><i class="fas fa-sign-out-alt"></i> <span data-lang-key="btn_logout">Sair</span></button>
-
+            <div class="logo">
+                <i class="fas fa-flag"></i>
+                <span>El Salvador</span>
             </div>
+            <ul class="nav-links">
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#food">Culinária</a></li>
+                <li><a href="#media">Mídia</a></li>
+                <li><a href="#conclusion">Conclusão</a></li>
+            </ul>
+            <div class="language-selector">
+                <button class="lang-btn active" data-lang="pt">PT</button>
+                <button class="lang-btn" data-lang="es">ES</button>
+            </div>
+            <button class="admin-btn" id="adminLoginBtn">
+                <i class="fas fa-user-shield"></i>
+                Admin
+            </button>
         </nav>
     </header>
 
-    <main>
-        <section id="hero" class="hero">
-            <div class="hero-content">
-                <div class="flag-container">
-                    <div class="flag">
-                        <div class="flag-stripe blue"></div>
-                        <div class="flag-stripe white">
-                            <div class="emblem">SV</div>
-                        </div>
-                        <div class="flag-stripe blue"></div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="flag-container">
+                <div class="flag">
+                    <div class="flag-stripe blue"></div>
+                    <div class="flag-stripe white">
+                        <div class="emblem">ES</div>
                     </div>
-                </div>
-                <h1 id="hero-title" data-lang-key="hero_title" class="content-editable" contenteditable="false">EL SALVADOR: A JÓIA DA AMÉRICA CENTRAL</h1>
-                <p id="hero-subtitle" data-lang-key="hero_subtitle" class="content-editable" contenteditable="false">Cultura, História e a Melhor Gastronomia.</p>
-            </div>
-        </section>
-
-        <section id="about">
-            <div class="section-header">
-                <h2 class="section-title" data-lang-key="about_title">Cultura e História</h2>
-                <p class="section-subtitle" data-lang-key="about_subtitle">Mais do que pupusas: uma nação vibrante.</p>
-            </div>
-
-            <div class="about-grid">
-                <div class="about-card">
-                    <div class="card-icon"><i class="fas fa-mountain"></i></div>
-                    <h3 id="about-card1-title" data-lang-key="about_card1_title" class="content-editable" contenteditable="false">Geografia Única</h3>
-                    <p id="about-card1-text" data-lang-key="about_card1_text" class="content-editable" contenteditable="false">El Salvador é famosa por seus vulcões ativos, praias espetaculares no Pacífico e paisagens montanhosas ideais para o café. O 'País dos Vulcões' oferece uma diversidade de clima incrível.</p>
-                </div>
-                
-                <div class="about-card">
-                    <div class="card-icon" style="background: linear-gradient(135deg, var(--secondary), #A08C75); box-shadow: 0 10px 30px rgba(139, 115, 85, 0.3);"><i class="fas fa-utensils"></i></div>
-                    <h3 id="about-card2-title" data-lang-key="about_card2_title" class="content-editable" contenteditable="false">A Força do Café</h3>
-                    <p id="about-card2-text" data-lang-key="about_card2_text" class="content-editable" contenteditable="false">O café salvadorenho tem sido historicamente um dos pilares de sua economia. Cultivado em solos vulcânicos ricos, possui um sabor único e é exportado para o mundo todo.</p>
-                </div>
-
-                <div class="about-card">
-                    <div class="card-icon" style="background: linear-gradient(135deg, var(--success), #28a745); box-shadow: 0 10px 30px rgba(48, 209, 88, 0.3);"><i class="fas fa-palette"></i></div>
-                    <h3 id="about-card3-title" data-lang-key="about_card3_title" class="content-editable" contenteditable="false">Herança Maia e Indígena</h3>
-                    <p id="about-card3-text" data-lang-key="about_card3_text" class="content-editable" contenteditable="false">O país preserva sítios arqueológicos Maias importantes como Joya de Cerén (a Pompeia das Américas) e Tazumal, demonstrando sua rica história pré-colombiana.</p>
+                    <div class="flag-stripe blue"></div>
                 </div>
             </div>
-        </section>
+            <h1>El Salvador</h1>
+            <p>Cultura, Tradição e Sabor</p>
+        </div>
+    </section>
 
-        <section id="food" class="food-section">
-            <div class="section-header">
-                <h2 class="section-title" data-lang-key="food_title">A Alma de El Salvador</h2>
-                <p class="section-subtitle" data-lang-key="food_subtitle">Uma viagem de sabores que vai além do convencional.</p>
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header">
+            <h2 class="section-title">Sobre El Salvador</h2>
+            <p class="section-subtitle">Descubra a terra dos vulcões e da cultura vibrante</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-card">
+                <div class="card-icon">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+                <h3>Geografia</h3>
+                <p>El Salvador é o menor país da América Central, mas possui uma geografia impressionante com mais de 20 vulcões, belas praias no Oceano Pacífico e paisagens montanhosas.</p>
             </div>
-
-            <div class="special-group-section">
-                <div class="special-title">
-                    <span class="badge"><i class="fas fa-star"></i> <span data-lang-key="food_special_badge">Prato Nacional</span></span>
-                    <h2 data-lang-key="food_special_title">As Famosas Pupusas</h2>
+            <div class="about-card">
+                <div class="card-icon">
+                    <i class="fas fa-history"></i>
                 </div>
-
-                <div class="our-dish-card">
-                    <div class="our-dish-image">
-                        <img id="dish-image-1" src="https://via.placeholder.com/600x600/5AC8FA/FFFFFF?text=Pupusa+Image" alt="Pupusa com Curtido e Molho de Tomate">
-                        <button class="edit-image-btn" data-image-id="dish-image-1"><i class="fas fa-upload"></i> <span data-lang-key="btn_upload_image">Trocar Imagem</span></button>
-                    </div>
-
-                    <div class="our-dish-content">
-                        <span class="highlight"><i class="fas fa-chili"></i> <span data-lang-key="food_special_highlight">Feitas à Mão, Recheadas com Amor</span></span>
-                        
-                        <h3 id="dish-title-1" data-lang-key="dish1_title" class="content-editable" contenteditable="false">A Tradição em Cada Mordida</h3>
-                        
-                        <p id="dish-description-1" data-lang-key="dish1_description" class="content-editable" contenteditable="false">As pupusas são o prato mais emblemático de El Salvador. São tortillas de milho grossas e recheadas com queijo, feijão, chicharrón (carne de porco frita) ou uma combinação dos três (revueltas).</p>
-                        
-                        <div class="ingredients-list">
-                            <h4 data-lang-key="dish1_ingredients_title"><i class="fas fa-mortar-pestle"></i> Ingredientes Chave</h4>
-                            <ul id="dish1-ingredients-list" class="content-editable" contenteditable="false" data-lang-key="dish1_ingredients_list">
-                                <li>Massa de milho (Masa de maíz)</li>
-                                <li>Queijo (Quesillo)</li>
-                                <li>Feijão Frito (Frijoles refritos)</li>
-                                <li>Chicharrón (Carne de porco moída)</li>
-                            </ul>
-                            <p class="optional-note" data-lang-key="dish1_note">Geralmente servidas com curtido (repolho fermentado) e molho de tomate.</p>
-                        </div>
-                    </div>
-                </div>
+                <h3>História</h3>
+                <p>Com uma rica história que remonta às civilizações maias, El Salvador tem uma cultura única que mistura influências indígenas e espanholas.</p>
             </div>
-
-            <h3 class="food-grid-title" data-lang-key="food_grid_title"><i class="fas fa-globe-americas"></i> Outros Sabores Imperdíveis</h3>
-
-            <div class="food-grid">
-                
-                <div class="food-card" data-food-id="dish2">
-                    <div class="food-image-container">
-                        <img id="dish-image-2" src="https://via.placeholder.com/600x300/8B7355/FFFFFF?text=Yuca+Frita" alt="Yuca Frita">
-                    </div>
-                    <div class="food-content">
-                        <h3 id="dish-title-2" data-lang-key="dish2_title" class="content-editable" contenteditable="false"><i class="fas fa-seedling"></i> Yuca Frita/Sancochada</h3>
-                        <p id="dish-short-desc-2" data-lang-key="dish2_short_description" class="content-editable" contenteditable="false">Mandioca (aipim) frita ou cozida, servida com pedaços de chicharrón e curtido, coberta com molho de tomate e rabanetes.</p>
-                    </div>
+            <div class="about-card">
+                <div class="card-icon">
+                    <i class="fas fa-users"></i>
                 </div>
+                <h3>Cultura</h3>
+                <p>Conhecido por seu povo acolhedor, festivais coloridos e artesanato tradicional, El Salvador é um país com uma identidade cultural forte e vibrante.</p>
+            </div>
+        </div>
+    </section>
 
-                <div class="food-card" data-food-id="dish3">
-                    <div class="food-image-container">
-                        <img id="dish-image-3" src="https://via.placeholder.com/600x300/007AFF/FFFFFF?text=Sopa+de+Res" alt="Sopa de Res">
-                    </div>
-                    <div class="food-content">
-                        <h3 id="dish-title-3" data-lang-key="dish3_title" class="content-editable" contenteditable="false"><i class="fas fa-bowl-food"></i> Sopa de Res</h3>
-                        <p id="dish-short-desc-3" data-lang-key="dish3_short_description" class="content-editable" contenteditable="false">Um caldo rico e nutritivo de carne bovina e muitos vegetais (milho, abóbora, repolho), perfeito para o almoço de domingo.</p>
-                    </div>
-                </div>
-                
-                <div class="food-card" data-food-id="dish4">
-                    <div class="food-image-container">
-                        <img id="dish-image-4" src="https://via.placeholder.com/600x300/FFD60A/0A0A0A?text=Horchata" alt="Horchata">
-                    </div>
-                    <div class="food-content">
-                        <h3 id="dish-title-4" data-lang-key="dish4_title" class="content-editable" contenteditable="false"><i class="fas fa-cocktail"></i> Horchata Salvadoreña</h3>
-                        <p id="dish-short-desc-4" data-lang-key="dish4_short_description" class="content-editable" contenteditable="false">Diferente da versão mexicana, é uma bebida refrescante feita de sementes de morro, arroz e especiarias como canela e baunilha.</p>
-                    </div>
+    <!-- Food Section -->
+    <section id="food" class="food-section">
+        <div class="section-header">
+            <h2 class="section-title">Culinária Salvadorenha</h2>
+            <p class="section-subtitle">Sabores únicos que contam histórias</p>
+        </div>
+
+        <!-- Nossa Comida Especial -->
+        <div class="special-group-section">
+            <div class="special-title">
+                <h2>Nossa Comida Especial</h2>
+                <div class="badge">
+                    <i class="fas fa-star"></i>
+                    Prato Tradicional
                 </div>
             </div>
-            
-            <div id="food-details-modal" class="modal">
-                <div class="food-details-content">
-                    <span class="close" data-close-modal="food-details-modal"><i class="fas fa-times"></i></span>
-                    <div class="food-details-header">
-                        <img id="modal-dish-image" src="" alt="Detalhe do Prato">
+            <div class="our-dish-card">
+                <div class="our-dish-image">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Pupusas">
+                    <button class="edit-image-btn" id="editDishImageBtn">
+                        <i class="fas fa-edit"></i>
+                        Alterar Imagem
+                    </button>
+                </div>
+                <div class="our-dish-content">
+                    <h3>Pupusas</h3>
+                    <p class="highlight">
+                        <i class="fas fa-utensils"></i>
+                        O prato nacional de El Salvador
+                    </p>
+                    <p>As pupusas são uma iguaria salvadorenha feita de massa de milho recheada com queijo, feijão, chicharrón (carne de porco) ou uma combinação desses ingredientes. Servidas com curtido (repolho em conserva) e molho de tomate.</p>
+                    
+                    <div class="ingredients-list">
+                        <h4><i class="fas fa-list"></i> Ingredientes Principais</h4>
+                        <ul>
+                            <li>Massa de milho</li>
+                            <li>Queijo (quesillo)</li>
+                            <li>Feijão vermelho</li>
+                            <li>Chicharrón (opcional)</li>
+                            <li>Repolho para curtido</li>
+                            <li>Tomates para molho</li>
+                        </ul>
+                        <p class="optional-note">* As pupusas podem ser recheadas com diversos ingredientes conforme a preferência regional.</p>
                     </div>
-                    <div class="food-details-body">
-                        <h2 id="modal-dish-title"></h2>
-                        <p id="modal-dish-full-description"></p>
-                        </div>
                 </div>
-            </div>
-
-        </section>
-        
-        <section id="media">
-            <div class="section-header">
-                <h2 class="section-title" data-lang-key="media_title">Explore e Assista</h2>
-                <p class="section-subtitle" data-lang-key="media_subtitle">Vídeos e Galerias para imersão total.</p>
-            </div>
-
-            <div class="media-section">
-                <h3 style="color: var(--light-text); font-size: 2rem; margin-bottom: 2rem; text-align: center;" data-lang-key="media_video_call">Assista ao Nosso Vídeo Institucional</h3>
-                
-                <div class="media-buttons">
-                    <button class="media-btn video-btn" data-open-modal="video-modal"><i class="fab fa-youtube"></i> <span data-lang-key="btn_watch_video">Assistir Vídeo</span></button>
-                    <button class="media-btn slide-btn" data-open-modal="gallery-modal"><i class="fas fa-images"></i> <span data-lang-key="btn_open_gallery">Abrir Galeria</span></button>
-                </div>
-            </div>
-        </section>
-        
-        <div id="video-modal" class="modal">
-            <div class="modal-content">
-                <span class="close" data-close-modal="video-modal"><i class="fas fa-times"></i></span>
-                <iframe id="youtube-player" src="https://www.youtube.com/embed/z4A8J4j1sYQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 
-        <div id="gallery-modal" class="modal">
-            <div class="modal-content" style="max-width: 900px; padding: 3rem;">
-                <span class="close" data-close-modal="gallery-modal"><i class="fas fa-times"></i></span>
-                <h2 style="color: var(--primary); text-align: center;" data-lang-key="gallery_modal_title">Galeria de Fotos</h2>
-                <p style="color: var(--gray); text-align: center; margin-bottom: 2rem;" data-lang-key="gallery_modal_text">Aqui você pode adicionar o código do seu carrossel de imagens ou galeria.</p>
-                <img src="https://via.placeholder.com/800x450/2C2C2E/98989D?text=Placeholder+Galeria+de+Imagens" style="width: 100%; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+        <h2 class="food-grid-title">
+            <i class="fas fa-utensil-spoon"></i>
+            Outros Pratos Tradicionais
+        </h2>
+        <div class="food-grid">
+            <div class="food-card" data-food="yuca">
+                <div class="food-image-container">
+                    <img src="https://images.unsplash.com/photo-1570196917327-8c94d7137a1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Yuca Frita" class="food-image">
+                </div>
+                <div class="food-content">
+                    <h3><i class="fas fa-apple-alt"></i> Yuca Frita</h3>
+                    <p>Yuca frita servida com chicharrón e curtido, um acompanhamento delicioso e crocante.</p>
+                </div>
+            </div>
+            <div class="food-card" data-food="tamales">
+                <div class="food-image-container">
+                    <img src="https://images.unsplash.com/photo-1615870216519-2f9fa575fa5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Tamales" class="food-image">
+                </div>
+                <div class="food-content">
+                    <h3><i class="fas fa-leaf"></i> Tamales</h3>
+                    <p>Massa de milho recheada com carne ou frango, cozida em folhas de bananeira.</p>
+                </div>
+            </div>
+            <div class="food-card" data-food="sopa">
+                <div class="food-image-container">
+                    <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Sopa de Pata" class="food-image">
+                </div>
+                <div class="food-content">
+                    <h3><i class="fas fa-utensils"></i> Sopa de Pata</h3>
+                    <p>Sopa tradicional feita com pata de vaca, milho, banana e vegetais.</p>
+                </div>
             </div>
         </div>
-        
-    </main>
+    </section>
 
+    <!-- Media Section -->
+    <section id="media" class="media-section">
+        <div class="section-header">
+            <h2 class="section-title">Mídia</h2>
+            <p class="section-subtitle">Explore El Salvador através de imagens e vídeos</p>
+        </div>
+        <div class="media-buttons">
+            <button class="media-btn slide-btn" id="slideshowBtn">
+                <i class="fas fa-images"></i>
+                Apresentação de Slides
+            </button>
+            <button class="media-btn video-btn" id="videoBtn">
+                <i class="fas fa-play-circle"></i>
+                Vídeo de El Salvador
+            </button>
+        </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section id="conclusion" class="conclusion-section">
+        <div class="conclusion-content">
+            <h2 class="conclusion-title">Obrigado!</h2>
+            <p class="conclusion-text">Agradecemos por explorar conosco a rica cultura e gastronomia de El Salvador. Esperamos que tenha despertado seu interesse por este país incrível e suas delícias culinárias.</p>
+            <div class="conclusion-image">
+                <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Mandioca - Comida Típica">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p data-lang-key="footer_text">&copy; 2025 El Salvador Cultural Project - Desenvolvido para Projeto Escolar.</p>
-        <p><span data-lang-key="footer_version">Versão CMS</span> 2.7K</p>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-flag"></i>
+                El Salvador
+            </div>
+            <div class="footer-links">
+                <a href="#about">Sobre</a>
+                <a href="#food">Culinária</a>
+                <a href="#media">Mídia</a>
+                <a href="#conclusion">Conclusão</a>
+            </div>
+            <p class="copyright">© 2023 El Salvador - Todos os direitos reservados</p>
+        </div>
     </footer>
 
-    <div id="login-modal" class="modal">
-        <div class="login-form">
-            <span class="close" data-close-modal="login-modal"><i class="fas fa-times"></i></span>
-            <h2><i class="fas fa-lock"></i> <span data-lang-key="login_title">Acesso Administrativo</span></h2>
-            <form id="login-form">
-                <div class="form-group">
-                    <label for="username"><i class="fas fa-user"></i> <span data-lang-key="login_username_label">Usuário</span></label>
-                    <input type="text" id="username" placeholder="admin" required>
-                </div>
-                <div class="form-group">
-                    <label for="password"><i class="fas fa-key"></i> <span data-lang-key="login_password_label">Senha</span></label>
-                    <input type="password" id="password" placeholder="******" required>
-                </div>
-                <button type="submit" class="login-btn"><i class="fas fa-sign-in-alt"></i> <span data-lang-key="btn_login_submit">Entrar</span></button>
-                <p id="login-error" style="color: var(--error); text-align: center; margin-top: 1rem; display: none;" data-lang-key="login_error">Usuário ou senha incorretos.</p>
-            </form>
+    <!-- Food Details Modal -->
+    <div id="foodDetailsModal" class="food-details-modal">
+        <div class="food-details-content">
+            <span class="close">&times;</span>
+            <div class="food-details-header">
+                <img id="modalFoodImage" src="" alt="Food Image">
+            </div>
+            <div class="food-details-body">
+                <h2 id="modalFoodTitle"></h2>
+                <p id="modalFoodDescription"></p>
+            </div>
         </div>
     </div>
-    
-    <div id="admin-panel" class="admin-panel modal">
-        <span class="close" data-close-modal="admin-panel"><i class="fas fa-times"></i></span>
-        <h2><i class="fas fa-cogs"></i> <span data-lang-key="admin_panel_title">Painel de Controle do CMS</span></h2>
-        
-        <div class="admin-section">
-            <h3><i class="fas fa-file-alt"></i> <span data-lang-key="admin_section_text">Edição de Textos (PT/EN)</span></h3>
-            <p style="color: var(--gray);" data-lang-key="admin_section_text_desc">Use o botão "Editar" na barra de navegação para habilitar a edição direta dos textos na página principal. Salve as mudanças aqui:</p>
-            <div id="content-status" style="margin-top: 1rem; padding: 1rem; background: rgba(90, 200, 250, 0.1); border-radius: 12px; color: var(--primary); display: none;">
-                <p data-lang-key="admin_status_unsaved">⚠️ Conteúdo alterado. Clique em Salvar para aplicar as mudanças.</p>
-            </div>
-            </div>
 
-        <div class="admin-section">
-            <h3><i class="fas fa-images"></i> <span data-lang-key="admin_section_images">Upload de Imagens (Gastronomia)</span></h3>
-            <p style="color: var(--gray);" data-lang-key="admin_section_images_desc">Clique para selecionar e substituir a imagem do prato. As alterações são locais/mockup (simulam upload).</p>
-            
-            <div class="food-images-grid">
-                
-                <div class="food-image-item">
-                    <label>
-                        <img id="admin-image-dish-image-1" src="https://via.placeholder.com/600x600/5AC8FA/FFFFFF?text=Pupusa+Image" alt="Pupusa">
-                        <input type="file" class="image-uploader" data-target-id="dish-image-1" accept="image/*">
-                        <label data-lang-key="admin_image_pupusas">Pupusas</label>
-                    </label>
-                </div>
-                
-                <div class="food-image-item">
-                    <label>
-                        <img id="admin-image-dish-image-2" src="https://via.placeholder.com/600x300/8B7355/FFFFFF?text=Yuca+Frita" alt="Yuca Frita">
-                        <input type="file" class="image-uploader" data-target-id="dish-image-2" accept="image/*">
-                        <label data-lang-key="admin_image_yuca">Yuca Frita</label>
-                    </label>
-                </div>
-                
-                <div class="food-image-item">
-                    <label>
-                        <img id="admin-image-dish-image-3" src="https://via.placeholder.com/600x300/007AFF/FFFFFF?text=Sopa+de+Res" alt="Sopa de Res">
-                        <input type="file" class="image-uploader" data-target-id="dish-image-3" accept="image/*">
-                        <label data-lang-key="admin_image_sopa">Sopa de Res</label>
-                    </label>
-                </div>
-                
-                <div class="food-image-item">
-                    <label>
-                        <img id="admin-image-dish-image-4" src="https://via.placeholder.com/600x300/FFD60A/0A0A0A?text=Horchata" alt="Horchata">
-                        <input type="file" class="image-uploader" data-target-id="dish-image-4" accept="image/*">
-                        <label data-lang-key="admin_image_horchata">Horchata</label>
-                    </label>
-                </div>
+    <!-- Slideshow Modal -->
+    <div id="slideshowModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="slideshowContainer">
+                <!-- Slides will be loaded here -->
             </div>
-            
         </div>
-        
-        <button class="logout-btn" id="panel-logout-btn"><i class="fas fa-sign-out-alt"></i> <span data-lang-key="btn_logout">Sair do Painel</span></button>
-
     </div>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="videoContainer">
+                <!-- Video will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="login-form">
+                <h2>Login Administrativo</h2>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" class="form-control" placeholder="Seu e-mail">
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" class="form-control" placeholder="Sua senha">
+                </div>
+                <button class="login-btn" id="loginSubmitBtn">Entrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="admin-panel">
+        <div class="admin-header">
+            <div class="admin-title">
+                <i class="fas fa-user-shield"></i>
+                Painel Administrativo
+            </div>
+            <div class="admin-actions">
+                <button class="admin-btn save-btn" id="adminSaveBtn">
+                    <i class="fas fa-save"></i>
+                    Salvar Alterações
+                </button>
+                <button class="admin-btn logout-btn" id="adminLogoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Sair
+                </button>
+            </div>
+        </div>
+        <div class="admin-content">
+            <div class="admin-section">
+                <h3><i class="fas fa-video"></i> Gerenciar Vídeo</h3>
+                <p>Cole o link de incorporação do YouTube abaixo:</p>
+                <div class="video-embed-input">
+                    <input type="text" id="videoEmbedInput" placeholder="https://www.youtube.com/embed/VIDEO_ID">
+                    <button id="updateVideoBtn">Atualizar Vídeo</button>
+                </div>
+                <div id="currentVideo">
+                    <p>Vídeo atual:</p>
+                    <!-- Current video will be displayed here -->
+                </div>
+            </div>
+            <div class="admin-section">
+                <h3><i class="fas fa-image"></i> Gerenciar Imagens</h3>
+                <p>Altere a imagem do prato especial:</p>
+                <div class="video-embed-input">
+                    <input type="text" id="dishImageInput" placeholder="URL da nova imagem">
+                    <button id="updateDishImageBtn">Atualizar Imagem</button>
+                </div>
+            </div>
+            <div class="admin-section">
+                <h3><i class="fas fa-language"></i> Gerenciar Conteúdo</h3>
+                <p>Edite o conteúdo textual do site:</p>
+                <!-- Content editing interface will be here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 
     <script>
-        // MOCKUP DE DADOS PARA SIMULAR UM BANCO DE DADOS (CMS)
-        const contentData = {
-            pt: {
-                hero_title: "EL SALVADOR: A JÓIA DA AMÉRICA CENTRAL",
-                hero_subtitle: "Cultura, História e a Melhor Gastronomia.",
-                
-                nav_home: "Início", nav_about: "Sobre", nav_food: "Gastronomia", nav_media: "Mídia",
-                btn_login: "Admin", btn_logout: "Sair", btn_edit: "Editar", btn_save: "Salvar", btn_cancel: "Cancelar",
-                btn_login_submit: "Entrar",
-                
-                about_title: "Cultura e História",
-                about_subtitle: "Mais do que pupusas: uma nação vibrante.",
-                about_card1_title: "Geografia Única",
-                about_card1_text: "El Salvador é famosa por seus vulcões ativos, praias espetaculares no Pacífico e paisagens montanhosas ideais para o café. O 'País dos Vulcões' oferece uma diversidade de clima incrível.",
-                about_card2_title: "A Força do Café",
-                about_card2_text: "O café salvadorenho tem sido historicamente um dos pilares de sua economia. Cultivado em solos vulcânicos ricos, possui um sabor único e é exportado para o mundo todo.",
-                about_card3_title: "Herança Maia e Indígena",
-                about_card3_text: "O país preserva sítios arqueológicos Maias importantes como Joya de Cerén (a Pompeia das Américas) e Tazumal, demonstrando sua rica história pré-colombiana.",
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyC9N7j8D9V9V9V9V9V9V9V9V9V9V9V9V9V9V9",
+            authDomain: "el-salvador-project.firebaseapp.com",
+            projectId: "el-salvador-project",
+            storageBucket: "el-salvador-project.appspot.com",
+            messagingSenderId: "123456789012",
+            appId: "1:123456789012:web:abcdefghijklmnopqrstuv"
+        };
 
-                food_title: "A Alma de El Salvador",
-                food_subtitle: "Uma viagem de sabores que vai além do convencional.",
-                food_special_badge: "Prato Nacional",
-                food_special_title: "As Famosas Pupusas",
-                food_special_highlight: "Feitas à Mão, Recheadas com Amor",
-                
-                dish1_title: "A Tradição em Cada Mordida",
-                dish1_description: "As pupusas são o prato mais emblemático de El Salvador. São tortillas de milho grossas e recheadas com queijo, feijão, chicharrón (carne de porco frita) ou uma combinação dos três (revueltas).",
-                dish1_ingredients_title: "Ingredientes Chave",
-                dish1_ingredients_list: "<li>Massa de milho (Masa de maíz)</li>\n<li>Queijo (Quesillo)</li>\n<li>Feijão Frito (Frijoles refritos)</li>\n<li>Chicharrón (Carne de porco moída)</li>",
-                dish1_note: "Geralmente servidas com curtido (repolho fermentado) e molho de tomate.",
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
 
-                food_grid_title: "Outros Sabores Imperdíveis",
-                dish2_title: "Yuca Frita/Sancochada",
-                dish2_short_description: "Mandioca (aipim) frita ou cozida, servida com pedaços de chicharrón e curtido, coberta com molho de tomate e rabanetes.",
-                
-                dish3_title: "Sopa de Res",
-                dish3_short_description: "Um caldo rico e nutritivo de carne bovina e muitos vegetais (milho, abóbora, repolho), perfeito para o almoço de domingo.",
-                
-                dish4_title: "Horchata Salvadoreña",
-                dish4_short_description: "Diferente da versão mexicana, é uma bebida refrescante feita de sementes de morro, arroz e especiarias como canela e baunilha.",
-                
-                media_title: "Explore e Assista",
-                media_subtitle: "Vídeos e Galerias para imersão total.",
-                media_video_call: "Assista ao Nosso Vídeo Institucional",
-                btn_watch_video: "Assistir Vídeo",
-                btn_open_gallery: "Abrir Galeria",
-                btn_upload_image: "Trocar Imagem",
-                
-                footer_text: "© 2025 El Salvador Cultural Project - Desenvolvido para Projeto Escolar.",
-                footer_version: "Versão CMS",
-                
-                login_title: "Acesso Administrativo",
-                login_username_label: "Usuário",
-                login_password_label: "Senha",
-                login_error: "Usuário ou senha incorretos.",
-                
-                admin_panel_title: "Painel de Controle do CMS",
-                admin_section_text: "Edição de Textos (PT/EN)",
-                admin_section_text_desc: "Use o botão \"Editar\" na barra de navegação para habilitar a edição direta dos textos na página principal. Salve as mudanças aqui:",
-                admin_status_unsaved: "⚠️ Conteúdo alterado. Clique em Salvar para aplicar as mudanças.",
-                admin_section_images: "Upload de Imagens (Gastronomia)",
-                admin_section_images_desc: "Clique para selecionar e substituir a imagem do prato. As alterações são locais/mockup (simulam upload).",
-                admin_image_pupusas: "Pupusas",
-                admin_image_yuca: "Yuca Frita",
-                admin_image_sopa: "Sopa de Res",
-                admin_image_horchata: "Horchata",
+        // DOM Elements
+        const adminLoginBtn = document.getElementById('adminLoginBtn');
+        const loginModal = document.getElementById('loginModal');
+        const adminPanel = document.getElementById('adminPanel');
+        const adminLogoutBtn = document.getElementById('adminLogoutBtn');
+        const loginSubmitBtn = document.getElementById('loginSubmitBtn');
+        const closeButtons = document.querySelectorAll('.close');
+        const videoBtn = document.getElementById('videoBtn');
+        const videoModal = document.getElementById('videoModal');
+        const videoContainer = document.getElementById('videoContainer');
+        const slideshowBtn = document.getElementById('slideshowBtn');
+        const slideshowModal = document.getElementById('slideshowModal');
+        const slideshowContainer = document.getElementById('slideshowContainer');
+        const foodCards = document.querySelectorAll('.food-card');
+        const foodDetailsModal = document.getElementById('foodDetailsModal');
+        const updateVideoBtn = document.getElementById('updateVideoBtn');
+        const videoEmbedInput = document.getElementById('videoEmbedInput');
+        const updateDishImageBtn = document.getElementById('updateDishImageBtn');
+        const dishImageInput = document.getElementById('dishImageInput');
+        const editDishImageBtn = document.getElementById('editDishImageBtn');
+        const langButtons = document.querySelectorAll('.lang-btn');
+        const adminSaveBtn = document.getElementById('adminSaveBtn');
+
+        // Food data
+        const foodData = {
+            yuca: {
+                title: "Yuca Frita",
+                description: "A yuca frita é um acompanhamento tradicional em El Salvador. Feita com mandioca frita até ficar crocante por fora e macia por dentro, é geralmente servida com chicharrón (carne de porco frita) e curtido (uma salada de repolho em conserva). É um prato muito popular em festas e reuniões familiares.",
+                image: "https://images.unsplash.com/photo-1570196917327-8c94d7137a1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
             },
-            
-            en: {
-                hero_title: "EL SALVADOR: THE JEWEL OF CENTRAL AMERICA",
-                hero_subtitle: "Culture, History, and the Best Cuisine.",
-                
-                nav_home: "Home", nav_about: "About", nav_food: "Cuisine", nav_media: "Media",
-                btn_login: "Admin", btn_logout: "Logout", btn_edit: "Edit", btn_save: "Save", btn_cancel: "Cancel",
-                btn_login_submit: "Login",
-
-                about_title: "Culture and History",
-                about_subtitle: "More than pupusas: a vibrant nation.",
-                about_card1_title: "Unique Geography",
-                about_card1_text: "El Salvador is famous for its active volcanoes, spectacular Pacific beaches, and mountainous landscapes ideal for coffee. The 'Country of Volcanoes' offers incredible climate diversity.",
-                about_card2_title: "The Strength of Coffee",
-                about_card2_text: "Salvadoran coffee has historically been one of the pillars of its economy. Grown in rich volcanic soils, it has a unique flavor and is exported worldwide.",
-                about_card3_title: "Mayan and Indigenous Heritage",
-                about_card3_text: "The country preserves important Mayan archaeological sites like Joya de Cerén (the Pompeii of the Americas) and Tazumal, demonstrating its rich pre-Columbian history.",
-
-                food_title: "The Soul of El Salvador",
-                food_subtitle: "A journey of flavors that goes beyond the conventional.",
-                food_special_badge: "National Dish",
-                food_special_title: "The Famous Pupusas",
-                food_special_highlight: "Handmade, Stuffed with Love",
-                
-                dish1_title: "Tradition in Every Bite",
-                dish1_description: "Pupusas are the most emblematic dish of El Salvador. They are thick corn tortillas stuffed with cheese, beans, chicharrón (fried pork), or a combination of the three (revueltas).",
-                dish1_ingredients_title: "Key Ingredients",
-                dish1_ingredients_list: "<li>Corn dough (Masa de maíz)</li>\n<li>Cheese (Quesillo)</li>\n<li>Refried Beans (Frijoles refritos)</li>\n<li>Chicharrón (Ground pork)</li>",
-                dish1_note: "Usually served with curtido (fermented cabbage) and tomato sauce.",
-
-                food_grid_title: "Other Must-Try Flavors",
-                dish2_title: "Yuca Frita/Sancochada",
-                dish2_short_description: "Fried or cooked cassava (yuca), served with pieces of chicharrón and curtido, topped with tomato sauce and radishes.",
-                
-                dish3_title: "Sopa de Res",
-                dish3_short_description: "A rich and nutritious beef broth with many vegetables (corn, squash, cabbage), perfect for Sunday lunch.",
-                
-                dish4_title: "Salvadoran Horchata",
-                dish4_short_description: "Different from the Mexican version, it is a refreshing drink made from morro seeds, rice, and spices like cinnamon and vanilla.",
-                
-                media_title: "Explore and Watch",
-                media_subtitle: "Videos and Galleries for total immersion.",
-                media_video_call: "Watch Our Institutional Video",
-                btn_watch_video: "Watch Video",
-                btn_open_gallery: "Open Gallery",
-                btn_upload_image: "Change Image",
-
-                footer_text: "© 2025 El Salvador Cultural Project - Developed for School Project.",
-                footer_version: "CMS Version",
-                
-                login_title: "Administrative Access",
-                login_username_label: "Username",
-                login_password_label: "Password",
-                login_error: "Incorrect username or password.",
-
-                admin_panel_title: "CMS Control Panel",
-                admin_section_text: "Text Editing (PT/EN)",
-                admin_section_text_desc: "Use the \"Edit\" button in the navigation bar to enable direct editing of the main page texts. Save changes here:",
-                admin_status_unsaved: "⚠️ Content modified. Click Save to apply changes.",
-                admin_section_images: "Image Upload (Cuisine)",
-                admin_section_images_desc: "Click to select and replace the dish image. Changes are local/mockup (simulate upload).",
-                admin_image_pupusas: "Pupusas",
-                admin_image_yuca: "Yuca Frita",
-                admin_image_sopa: "Sopa de Res",
-                admin_image_horchata: "Horchata",
+            tamales: {
+                title: "Tamales Salvadorenhos",
+                description: "Os tamales são um prato tradicional em toda a América Latina, mas a versão salvadorenha tem suas particularidades. Feitos com massa de milho recheada com carne de frango ou porco, azeitonas, passas e pimentões, são cozidos em folhas de bananeira que lhes dão um sabor único. São frequentemente consumidos em ocasiões especiais e festividades.",
+                image: "https://images.unsplash.com/photo-1615870216519-2f9fa575fa5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+            },
+            sopa: {
+                title: "Sopa de Pata",
+                description: "A Sopa de Pata é um prato tradicional e nutritivo de El Salvador. Feita com pata de vaca, milho, banana-da-terra, repolho, quiabo e outros vegetais, é uma sopa substancial que reflete a culinária caseira salvadorenha. É conhecida por seu sabor rico e texturas variadas, sendo um prato comfort food para muitos salvadorenhos.",
+                image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
             }
         };
 
+        // Language data
+        const translations = {
+            pt: {
+                // Navigation
+                "Sobre": "Sobre",
+                "Culinária": "Culinária",
+                "Mídia": "Mídia",
+                "Conclusão": "Conclusão",
+                "Admin": "Admin",
+                
+                // Hero
+                "El Salvador": "El Salvador",
+                "Cultura, Tradição e Sabor": "Cultura, Tradição e Sabor",
+                
+                // About section
+                "Sobre El Salvador": "Sobre El Salvador",
+                "Descubra a terra dos vulcões e da cultura vibrante": "Descubra a terra dos vulcões e da cultura vibrante",
+                "Geografia": "Geografia",
+                "El Salvador é o menor país da América Central, mas possui uma geografia impressionante com mais de 20 vulcões, belas praias no Oceano Pacífico e paisagens montanhosas.": "El Salvador é o menor país da América Central, mas possui uma geografia impressionante com mais de 20 vulcões, belas praias no Oceano Pacífico e paisagens montanhosas.",
+                "História": "História",
+                "Com uma rica história que remonta às civilizações maias, El Salvador tem uma cultura única que mistura influências indígenas e espanholas.": "Com uma rica história que remonta às civilizações maias, El Salvador tem uma cultura única que mistura influências indígenas e espanholas.",
+                "Cultura": "Cultura",
+                "Conhecido por seu povo acolhedor, festivais coloridos e artesanato tradicional, El Salvador é um país com uma identidade cultural forte e vibrante.": "Conhecido por seu povo acolhedor, festivais coloridos e artesanato tradicional, El Salvador é um país com uma identidade cultural forte e vibrante.",
+                
+                // Food section
+                "Culinária Salvadorenha": "Culinária Salvadorenha",
+                "Sabores únicos que contam histórias": "Sabores únicos que contam histórias",
+                "Nossa Comida Especial": "Nossa Comida Especial",
+                "Prato Tradicional": "Prato Tradicional",
+                "Pupusas": "Pupusas",
+                "O prato nacional de El Salvador": "O prato nacional de El Salvador",
+                "As pupusas são uma iguaria salvadorenha feita de massa de milho recheada com queijo, feijão, chicharrón (carne de porco) ou uma combinação desses ingredientes. Servidas com curtido (repolho em conserva) e molho de tomate.": "As pupusas são uma iguaria salvadorenha feita de massa de milho recheada com queijo, feijão, chicharrón (carne de porco) ou uma combinação desses ingredientes. Servidas com curtido (repolho em conserva) e molho de tomate.",
+                "Ingredientes Principais": "Ingredientes Principais",
+                "Massa de milho": "Massa de milho",
+                "Queijo (quesillo)": "Queijo (quesillo)",
+                "Feijão vermelho": "Feijão vermelho",
+                "Chicharrón (opcional)": "Chicharrón (opcional)",
+                "Repolho para curtido": "Repolho para curtido",
+                "Tomates para molho": "Tomates para molho",
+                "* As pupusas podem ser recheadas com diversos ingredientes conforme a preferência regional.": "* As pupusas podem ser recheadas com diversos ingredientes conforme a preferência regional.",
+                "Outros Pratos Tradicionais": "Outros Pratos Tradicionais",
+                "Yuca Frita": "Yuca Frita",
+                "Yuca frita servida com chicharrón e curtido, um acompanhamento delicioso e crocante.": "Yuca frita servida com chicharrón e curtido, um acompanhamento delicioso e crocante.",
+                "Tamales": "Tamales",
+                "Massa de milho recheada com carne ou frango, cozida em folhas de bananeira.": "Massa de milho recheada com carne ou frango, cozida em folhas de bananeira.",
+                "Sopa de Pata": "Sopa de Pata",
+                "Sopa tradicional feita com pata de vaca, milho, banana e vegetais.": "Sopa tradicional feita com pata de vaca, milho, banana e vegetais.",
+                
+                // Media section
+                "Mídia": "Mídia",
+                "Explore El Salvador através de imagens e vídeos": "Explore El Salvador através de imagens e vídeos",
+                "Apresentação de Slides": "Apresentação de Slides",
+                "Vídeo de El Salvador": "Vídeo de El Salvador",
+                
+                // Conclusion section
+                "Obrigado!": "Obrigado!",
+                "Agradecemos por explorar conosco a rica cultura e gastronomia de El Salvador. Esperamos que tenha despertado seu interesse por este país incrível e suas delícias culinárias.": "Agradecemos por explorar conosco a rica cultura e gastronomia de El Salvador. Esperamos que tenha despertado seu interesse por este país incrível e suas delícias culinárias.",
+                
+                // Footer
+                "© 2023 El Salvador - Todos os direitos reservados": "© 2023 El Salvador - Todos os direitos reservados",
+                
+                // Admin
+                "Login Administrativo": "Login Administrativo",
+                "E-mail": "E-mail",
+                "Senha": "Senha",
+                "Entrar": "Entrar",
+                "Painel Administrativo": "Painel Administrativo",
+                "Salvar Alterações": "Salvar Alterações",
+                "Sair": "Sair",
+                "Gerenciar Vídeo": "Gerenciar Vídeo",
+                "Cole o link de incorporação do YouTube abaixo:": "Cole o link de incorporação do YouTube abaixo:",
+                "Atualizar Vídeo": "Atualizar Vídeo",
+                "Vídeo atual:": "Vídeo atual:",
+                "Gerenciar Imagens": "Gerenciar Imagens",
+                "Altere a imagem do prato especial:": "Altere a imagem do prato especial:",
+                "Atualizar Imagem": "Atualizar Imagem",
+                "Gerenciar Conteúdo": "Gerenciar Conteúdo",
+                "Edite o conteúdo textual do site:": "Edite o conteúdo textual do site:",
+                "Alterar Imagem": "Alterar Imagem"
+            },
+            es: {
+                // Navigation
+                "Sobre": "Acerca de",
+                "Culinária": "Gastronomía",
+                "Mídia": "Medios",
+                "Conclusão": "Conclusión",
+                "Admin": "Admin",
+                
+                // Hero
+                "El Salvador": "El Salvador",
+                "Cultura, Tradição e Sabor": "Cultura, Tradición y Sabor",
+                
+                // About section
+                "Sobre El Salvador": "Acerca de El Salvador",
+                "Descubra a terra dos vulcões e da cultura vibrante": "Descubre la tierra de los volcanes y la cultura vibrante",
+                "Geografia": "Geografía",
+                "El Salvador é o menor país da América Central, mas possui uma geografia impressionante com mais de 20 vulcões, belas praias no Oceano Pacífico e paisagens montanhosas.": "El Salvador es el país más pequeño de América Central, pero tiene una geografía impresionante con más de 20 volcanes, hermosas playas en el Océano Pacífico y paisajes montañosos.",
+                "História": "Historia",
+                "Com uma rica história que remonta às civilizações maias, El Salvador tem uma cultura única que mistura influências indígenas e espanholas.": "Con una rica historia que se remonta a las civilizaciones mayas, El Salvador tiene una cultura única que mezcla influencias indígenas y españolas.",
+                "Cultura": "Cultura",
+                "Conhecido por seu povo acolhedor, festivais coloridos e artesanato tradicional, El Salvador é um país com uma identidade cultural forte e vibrante.": "Conocido por su gente acogedora, festivales coloridos y artesanía tradicional, El Salvador es un país con una identidad cultural fuerte y vibrante.",
+                
+                // Food section
+                "Culinária Salvadorenha": "Gastronomía Salvadoreña",
+                "Sabores únicos que contam histórias": "Sabores únicos que cuentan historias",
+                "Nossa Comida Especial": "Nuestra Comida Especial",
+                "Prato Tradicional": "Plato Tradicional",
+                "Pupusas": "Pupusas",
+                "O prato nacional de El Salvador": "El plato nacional de El Salvador",
+                "As pupusas são uma iguaria salvadorenha feita de massa de milho recheada com queijo, feijão, chicharrón (carne de porco) ou uma combinação desses ingredientes. Servidas com curtido (repolho em conserva) e molho de tomate.": "Las pupusas son una delicia salvadoreña hecha de masa de maíz rellena con queso, frijoles, chicharrón (carne de cerdo) o una combinación de estos ingredientes. Se sirven con curtido (repollo en escabeche) y salsa de tomate.",
+                "Ingredientes Principais": "Ingredientes Principales",
+                "Massa de milho": "Masa de maíz",
+                "Queijo (quesillo)": "Queso (quesillo)",
+                "Feijão vermelho": "Frijol rojo",
+                "Chicharrón (opcional)": "Chicharrón (opcional)",
+                "Repolho para curtido": "Repollo para curtido",
+                "Tomates para molho": "Tomates para salsa",
+                "* As pupusas podem ser recheadas com diversos ingredientes conforme a preferência regional.": "* Las pupusas se pueden rellenar con diversos ingredientes según la preferencia regional.",
+                "Outros Pratos Tradicionais": "Otros Platos Tradicionales",
+                "Yuca Frita": "Yuca Frita",
+                "Yuca frita servida com chicharrón e curtido, um acompanhamento delicioso e crocante.": "Yuca frita servida con chicharrón y curtido, una guarnición deliciosa y crujiente.",
+                "Tamales": "Tamales",
+                "Massa de milho recheada com carne ou frango, cozida em folhas de bananeira.": "Masa de maíz rellena con carne o pollo, cocida en hojas de plátano.",
+                "Sopa de Pata": "Sopa de Pata",
+                "Sopa tradicional feita com pata de vaca, milho, banana e vegetais.": "Sopa tradicional hecha con pata de res, maíz, plátano y vegetales.",
+                
+                // Media section
+                "Mídia": "Medios",
+                "Explore El Salvador através de imagens e vídeos": "Explora El Salvador a través de imágenes y videos",
+                "Apresentação de Slides": "Presentación de Diapositivas",
+                "Vídeo de El Salvador": "Video de El Salvador",
+                
+                // Conclusion section
+                "Obrigado!": "¡Gracias!",
+                "Agradecemos por explorar conosco a rica cultura e gastronomia de El Salvador. Esperamos que tenha despertado seu interesse por este país incrível e suas delícias culinárias.": "Agradecemos que explores con nosotros la rica cultura y gastronomía de El Salvador. Esperamos que haya despertado tu interés por este increíble país y sus delicias culinarias.",
+                
+                // Footer
+                "© 2023 El Salvador - Todos os direitos reservados": "© 2023 El Salvador - Todos los derechos reservados",
+                
+                // Admin
+                "Login Administrativo": "Inicio de Sesión Administrativo",
+                "E-mail": "Correo Electrónico",
+                "Senha": "Contraseña",
+                "Entrar": "Entrar",
+                "Painel Administrativo": "Panel Administrativo",
+                "Salvar Alterações": "Guardar Cambios",
+                "Sair": "Salir",
+                "Gerenciar Vídeo": "Gestionar Video",
+                "Cole o link de incorporação do YouTube abaixo:": "Pega el enlace de incrustación de YouTube a continuación:",
+                "Atualizar Vídeo": "Actualizar Video",
+                "Vídeo atual:": "Video actual:",
+                "Gerenciar Imagens": "Gestionar Imágenes",
+                "Altere a imagem do prato especial:": "Cambia la imagen del plato especial:",
+                "Atualizar Imagem": "Actualizar Imagen",
+                "Gerenciar Conteúdo": "Gestionar Contenido",
+                "Edite o conteúdo textual do site:": "Edita el contenido textual del sitio:",
+                "Alterar Imagem": "Cambiar Imagen"
+            }
+        };
+
+        // Current language
         let currentLang = 'pt';
-        let isAdmin = false;
-        let originalContent = {};
-        
-        // --- FUNÇÕES GERAIS DE UI ---
 
-        // 1. Alterna entre os Modals
-        function toggleModal(modalId, show) {
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                if (show) {
-                    modal.style.display = 'block';
-                    document.body.style.overflow = 'hidden'; // Evita rolagem no background
-                    if (modalId === 'admin-panel') {
-                         modal.classList.add('modal-open'); // Adiciona classe para animação
-                    }
-                } else {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = '';
-                    if (modalId === 'admin-panel') {
-                        modal.classList.remove('modal-open');
-                    }
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is already logged in
+            auth.onAuthStateChanged(user => {
+                if (user) {
+                    showAdminPanel();
                 }
+            });
+
+            // Load default video
+            loadDefaultVideo();
+            
+            // Setup event listeners
+            setupEventListeners();
+            
+            // Load language
+            loadLanguage(currentLang);
+        });
+
+        function setupEventListeners() {
+            // Admin login button
+            adminLoginBtn.addEventListener('click', showLoginModal);
+            
+            // Login submit button
+            loginSubmitBtn.addEventListener('click', handleLogin);
+            
+            // Admin logout button
+            adminLogoutBtn.addEventListener('click', handleLogout);
+            
+            // Close buttons
+            closeButtons.forEach(btn => {
+                btn.addEventListener('click', closeModals);
+            });
+            
+            // Video button
+            videoBtn.addEventListener('click', showVideoModal);
+            
+            // Slideshow button
+            slideshowBtn.addEventListener('click', showSlideshowModal);
+            
+            // Food cards
+            foodCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const foodType = this.getAttribute('data-food');
+                    showFoodDetails(foodType);
+                });
+            });
+            
+            // Update video button
+            updateVideoBtn.addEventListener('click', updateVideo);
+            
+            // Update dish image button
+            updateDishImageBtn.addEventListener('click', updateDishImage);
+            
+            // Edit dish image button (only visible to admin)
+            editDishImageBtn.addEventListener('click', function() {
+                dishImageInput.value = document.querySelector('.our-dish-image img').src;
+                document.querySelector('.admin-section:nth-child(2)').scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Language buttons
+            langButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    changeLanguage(lang);
+                });
+            });
+            
+            // Admin save button
+            adminSaveBtn.addEventListener('click', saveAdminChanges);
+            
+            // Close modals when clicking outside
+            window.addEventListener('click', function(event) {
+                if (event.target.classList.contains('modal')) {
+                    closeModals();
+                }
+            });
+        }
+
+        function showLoginModal() {
+            loginModal.style.display = 'block';
+        }
+
+        function showAdminPanel() {
+            adminPanel.style.display = 'block';
+            // Show edit buttons for admin
+            editDishImageBtn.style.display = 'flex';
+        }
+
+        function handleLogin() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Simple validation
+            if (!email || !password) {
+                alert('Por favor, preencha todos os campos.');
+                return;
+            }
+            
+            // Firebase authentication
+            auth.signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // Signed in
+                    const user = userCredential.user;
+                    loginModal.style.display = 'none';
+                    showAdminPanel();
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    alert('Erro no login: ' + errorMessage);
+                });
+        }
+
+        function handleLogout() {
+            auth.signOut().then(() => {
+                adminPanel.style.display = 'none';
+                editDishImageBtn.style.display = 'none';
+            }).catch((error) => {
+                console.error('Erro ao fazer logout:', error);
+            });
+        }
+
+        function closeModals() {
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.style.display = 'none';
+            });
+            foodDetailsModal.style.display = 'none';
+        }
+
+        function showVideoModal() {
+            videoModal.style.display = 'block';
+        }
+
+        function showSlideshowModal() {
+            slideshowModal.style.display = 'block';
+            loadSlideshow();
+        }
+
+        function showFoodDetails(foodType) {
+            const food = foodData[foodType];
+            if (food) {
+                document.getElementById('modalFoodImage').src = food.image;
+                document.getElementById('modalFoodTitle').textContent = food.title;
+                document.getElementById('modalFoodDescription').textContent = food.description;
+                foodDetailsModal.style.display = 'block';
             }
         }
-        
-        // 2. Aplicar textos de acordo com o idioma
-        function applyLanguage(lang) {
+
+        function loadDefaultVideo() {
+            // Default video about El Salvador
+            const defaultVideo = '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/DkEFm6a4L_c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            videoContainer.innerHTML = defaultVideo;
+            
+            // Display current video in admin panel
+            document.getElementById('currentVideo').innerHTML = '<p>Vídeo atual:</p>' + defaultVideo;
+        }
+
+        function updateVideo() {
+            const embedUrl = videoEmbedInput.value;
+            if (embedUrl) {
+                // Extract video ID from embed URL if needed
+                let videoId = embedUrl;
+                if (embedUrl.includes('youtube.com/embed/')) {
+                    videoId = embedUrl.split('youtube.com/embed/')[1];
+                } else if (embedUrl.includes('youtu.be/')) {
+                    videoId = embedUrl.split('youtu.be/')[1];
+                } else if (embedUrl.includes('watch?v=')) {
+                    videoId = embedUrl.split('watch?v=')[1].split('&')[0];
+                }
+                
+                const newEmbed = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                videoContainer.innerHTML = newEmbed;
+                document.getElementById('currentVideo').innerHTML = '<p>Vídeo atual:</p>' + newEmbed;
+                alert('Vídeo atualizado com sucesso!');
+            } else {
+                alert('Por favor, insira um URL válido.');
+            }
+        }
+
+        function updateDishImage() {
+            const newImageUrl = dishImageInput.value;
+            if (newImageUrl) {
+                document.querySelector('.our-dish-image img').src = newImageUrl;
+                alert('Imagem atualizada com sucesso!');
+            } else {
+                alert('Por favor, insira uma URL válida.');
+            }
+        }
+
+        function loadSlideshow() {
+            // Sample images for slideshow
+            const images = [
+                'https://images.unsplash.com/photo-1595877244574-e90ce41ce089?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+                'https://images.unsplash.com/photo-1580651315530-69c8e0026377?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+                'https://images.unsplash.com/photo-1573992554012-1dc0e0bec02a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+                'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+            ];
+            
+            let slideshowHTML = '';
+            images.forEach((img, index) => {
+                slideshowHTML += `
+                    <div class="slide ${index === 0 ? 'active' : ''}">
+                        <img src="${img}" alt="El Salvador Image ${index + 1}">
+                    </div>
+                `;
+            });
+            
+            slideshowHTML += `
+                <button class="slide-nav prev">&#10094;</button>
+                <button class="slide-nav next">&#10095;</button>
+                <div class="slide-dots">
+                    ${images.map((_, i) => `<span class="dot ${i === 0 ? 'active' : ''}" data-slide="${i}"></span>`).join('')}
+                </div>
+            `;
+            
+            slideshowContainer.innerHTML = slideshowHTML;
+            
+            // Add slide navigation functionality
+            setupSlideshow();
+        }
+
+        function setupSlideshow() {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+            const prevBtn = document.querySelector('.slide-nav.prev');
+            const nextBtn = document.querySelector('.slide-nav.next');
+            
+            function showSlide(n) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                currentSlide = (n + slides.length) % slides.length;
+                
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+            }
+            
+            prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+            nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+            
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    showSlide(parseInt(this.getAttribute('data-slide')));
+                });
+            });
+            
+            // Auto-advance slides
+            setInterval(() => showSlide(currentSlide + 1), 5000);
+        }
+
+        function changeLanguage(lang) {
             currentLang = lang;
-            document.querySelectorAll('[data-lang-key]').forEach(element => {
-                const key = element.getAttribute('data-lang-key');
-                const content = contentData[lang][key];
-                
-                // Trata a tag do elemento para inserir o texto corretamente
-                if (element.tagName === 'INPUT' || element.tagName === 'BUTTON') {
-                     // Caso para texto em botões/inputs que não usam innerHTML
-                    element.textContent = content;
-                } else if (element.tagName === 'A' || element.tagName === 'SPAN') {
-                    element.textContent = content;
-                } else if (element.classList.contains('content-editable') && element.tagName !== 'P') {
-                    // Para elementos editáveis que não são parágrafos (como H1, H3)
-                    element.textContent = content;
+            loadLanguage(lang);
+            
+            // Update active language button
+            langButtons.forEach(btn => {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
                 } else {
-                    // Para blocos de texto maiores (P, DIV com innerHTML)
-                    element.innerHTML = content;
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        function loadLanguage(lang) {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
                 }
             });
             
-            // Atualiza o estado dos botões de idioma
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-            });
-            
-             // Salva a preferência
-            localStorage.setItem('cms_language', lang);
-        }
-        
-        // 3. Gerenciamento do Modo de Edição (CMS)
-        function toggleEditMode(enable) {
-            const editables = document.querySelectorAll('.content-editable');
-            const editControls = document.getElementById('edit-controls');
-            const editBtn = document.getElementById('edit-button');
-            const saveBtn = document.getElementById('save-button');
-            const cancelBtn = document.getElementById('cancel-button');
-            const imageBtns = document.querySelectorAll('.edit-image-btn');
-            
-            editables.forEach(el => {
-                el.contentEditable = enable ? 'true' : 'false';
-                el.classList.toggle('content-editable-enabled', enable);
-            });
-            
-            imageBtns.forEach(btn => {
-                btn.style.display = enable ? 'flex' : 'none';
-            });
-
-            // Mostra/Esconde botões de edição/salvar/cancelar
-            editBtn.style.display = enable ? 'none' : 'flex';
-            saveBtn.style.display = enable ? 'flex' : 'none';
-            cancelBtn.style.display = enable ? 'flex' : 'none';
-            
-            if (enable) {
-                // Salva o conteúdo original para 'Cancelar'
-                editables.forEach(el => {
-                    const key = el.getAttribute('data-lang-key');
-                    originalContent[key] = el.innerHTML;
-                });
-                console.log('Modo de Edição ATIVADO.');
-            } else {
-                console.log('Modo de Edição DESATIVADO.');
-            }
-        }
-        
-        // --- FUNÇÕES DO CMS (SIMULAÇÃO) ---
-
-        // 4. Salvar Conteúdo (Mockup)
-        function saveContent() {
-            const editables = document.querySelectorAll('.content-editable');
-            let changes = false;
-
-            editables.forEach(el => {
-                const key = el.getAttribute('data-lang-key');
-                const newContent = el.innerHTML.trim();
-                
-                // Verifica se houve mudança para o idioma atual
-                if (contentData[currentLang][key] !== newContent) {
-                    contentData[currentLang][key] = newContent;
-                    changes = true;
+            // Also update placeholder texts
+            const placeholders = document.querySelectorAll('[data-translate-placeholder]');
+            placeholders.forEach(element => {
+                const key = element.getAttribute('data-translate-placeholder');
+                if (translations[lang] && translations[lang][key]) {
+                    element.setAttribute('placeholder', translations[lang][key]);
                 }
             });
-            
-            if (changes) {
-                 // Simula a escrita de volta ao 'banco de dados'
-                console.log(`✅ Conteúdo em ${currentLang.toUpperCase()} SALVO com sucesso no MOCKUP!`);
-                
-                // Opcional: Adicionar lógica real de salvamento (Firebase, API, etc.)
-                // saveToDatabase(contentData[currentLang]); 
-                
-            } else {
-                console.log('Nenhuma alteração detectada para salvar.');
-            }
-
-            toggleEditMode(false);
-            document.getElementById('content-status').style.display = 'none'; // Esconde o status
         }
 
-        // 5. Cancelar Edição (Restaurar)
-        function cancelEditing() {
-            const editables = document.querySelectorAll('.content-editable');
-            
-            editables.forEach(el => {
-                const key = el.getAttribute('data-lang-key');
-                // Restaura o conteúdo original salvo ao entrar no modo de edição
-                if (originalContent[key] !== undefined) {
-                    el.innerHTML = originalContent[key];
-                }
-            });
-            
-            toggleEditMode(false);
-            document.getElementById('content-status').style.display = 'none';
-            console.log('❌ Edição CANCELADA. Conteúdo restaurado.');
+        function saveAdminChanges() {
+            // In a real application, this would save changes to Firebase
+            alert('Alterações salvas com sucesso!');
         }
-        
-        // 6. Manipulador de Upload de Imagem (Mockup)
-        function handleImageUpload(event) {
-            const file = event.target.files[0];
-            const targetId = event.target.getAttribute('data-target-id');
-            const reader = new FileReader();
 
-            reader.onload = function(e) {
-                const imgElement = document.getElementById(targetId);
-                const adminImgElement = document.getElementById(`admin-image-${targetId}`);
-
-                // Aplica a nova imagem aos elementos principais e do painel admin
-                imgElement.src = e.target.result;
-                if (adminImgElement) {
-                    adminImgElement.src = e.target.result;
-                }
-                
-                // Simula o upload e a atualização no CMS
-                console.log(`🖼️ Imagem para ${targetId} atualizada com sucesso (Mockup).`);
-
-                // Limpa o valor do input para permitir o upload da mesma imagem novamente
-                event.target.value = '';
-            };
-
-            if (file) {
-                reader.readAsDataURL(file);
-            }
-        }
-        
-        // --- INICIALIZAÇÃO E EVENT LISTENERS ---
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // 0. Verifica a preferência de idioma
-            const savedLang = localStorage.getItem('cms_language');
-            applyLanguage(savedLang || 'pt');
-            
-            // 1. Gerenciamento do MODO ADMIN/LOGIN
-            const loginBtn = document.getElementById('admin-login-btn');
-            const logoutBtn = document.getElementById('admin-logout-btn');
-            const loginModal = document.getElementById('login-modal');
-            const loginForm = document.getElementById('login-form');
-            const adminPanel = document.getElementById('admin-panel');
-            const editControls = document.getElementById('edit-controls');
-            const panelLogoutBtn = document.getElementById('panel-logout-btn');
-
-            function updateAdminUI(loggedIn) {
-                isAdmin = loggedIn;
-                loginBtn.style.display = loggedIn ? 'none' : 'flex';
-                logoutBtn.style.display = loggedIn ? 'flex' : 'none';
-                editControls.style.display = loggedIn ? 'flex' : 'none';
-            }
-            
-            // Simulação de login
-            loginBtn.addEventListener('click', () => toggleModal('login-modal', true));
-            loginForm.addEventListener('submit', (e) => {
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const user = document.getElementById('username').value;
-                const pass = document.getElementById('password').value;
-                const errorMsg = document.getElementById('login-error');
-
-                if (user === 'admin' && pass === '123') { // Credenciais simples de mockup
-                    updateAdminUI(true);
-                    toggleModal('login-modal', false);
-                    toggleModal('admin-panel', true);
-                    errorMsg.style.display = 'none';
-                    localStorage.setItem('cms_logged_in', 'true');
-                    console.log('🔑 Login de Admin bem-sucedido.');
-                } else {
-                    errorMsg.style.display = 'block';
-                    document.getElementById('password').value = '';
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
+        });
 
-            // Simulação de Logout
-            function handleLogout() {
-                updateAdminUI(false);
-                toggleModal('admin-panel', false);
-                toggleEditMode(false); // Desativa modo edição se estiver ativo
-                localStorage.removeItem('cms_logged_in');
-                console.log('🚪 Logout de Admin realizado.');
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(28, 28, 30, 0.95)';
+                header.style.backdropFilter = 'saturate(180%) blur(20px)';
+            } else {
+                header.style.background = 'rgba(28, 28, 30, 0.8)';
+                header.style.backdropFilter = 'saturate(180%) blur(20px)';
             }
-            
-            logoutBtn.addEventListener('click', handleLogout);
-            panelLogoutBtn.addEventListener('click', handleLogout);
-
-            // Verifica login ao carregar a página
-            if (localStorage.getItem('cms_logged_in') === 'true') {
-                 updateAdminUI(true);
-            }
-
-            // 2. Gerenciamento de Idioma
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const lang = btn.getAttribute('data-lang');
-                    applyLanguage(lang);
-                    // Garante que o modo de edição não perca o foco, mas o texto é atualizado
-                    const editables = document.querySelectorAll('.content-editable');
-                    editables.forEach(el => el.blur()); 
-                });
-            });
-
-            // 3. Botões de Edição
-            document.getElementById('edit-button').addEventListener('click', () => toggleEditMode(true));
-            document.getElementById('save-button').addEventListener('click', saveContent);
-            document.getElementById('cancel-button').addEventListener('click', cancelEditing);
-
-            // Listener para detectar mudanças e exibir o status de "Não Salvo"
-            document.querySelectorAll('.content-editable').forEach(el => {
-                el.addEventListener('input', () => {
-                    if (el.contentEditable === 'true') {
-                        document.getElementById('content-status').style.display = 'block';
-                    }
-                });
-            });
-            
-            // 4. Fechar Modals
-            document.querySelectorAll('.close').forEach(closeBtn => {
-                closeBtn.addEventListener('click', (e) => {
-                    const modalId = e.target.closest('.close').getAttribute('data-close-modal') || e.target.closest('.close').parentElement.id;
-                    toggleModal(modalId, false);
-                    // Pausa vídeo do YouTube
-                    if (modalId === 'video-modal') {
-                        const iframe = document.getElementById('youtube-player');
-                        if (iframe) {
-                            iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-                        }
-                    }
-                });
-            });
-            
-            // 5. Abrir Modals de Mídia
-            document.querySelectorAll('[data-open-modal]').forEach(openBtn => {
-                openBtn.addEventListener('click', (e) => {
-                    const modalId = e.currentTarget.getAttribute('data-open-modal');
-                    toggleModal(modalId, true);
-                });
-            });
-
-            // 6. Simulação de Upload de Imagem no Painel Admin
-            document.querySelectorAll('.image-uploader').forEach(input => {
-                input.addEventListener('change', handleImageUpload);
-            });
-            
-            // 7. Simulação de Edição Rápida da Imagem do Prato Especial
-            document.querySelectorAll('.edit-image-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    // Encontra o input de arquivo correspondente no painel admin e o aciona
-                    const targetId = e.currentTarget.getAttribute('data-image-id');
-                    const adminInput = document.querySelector(`.image-uploader[data-target-id="${targetId}"]`);
-                    if (adminInput) {
-                        adminInput.click();
-                    }
-                });
-            });
-            
-            // 8. Scroll Suave para links de navegação
-            document.querySelectorAll('.scroll-link').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-            
-            // 9. Comportamento ao clicar no food-card (abre modal de detalhes)
-            document.querySelectorAll('.food-card').forEach(card => {
-                card.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    // Esta é uma implementação simples. Em um CMS real, você faria uma chamada AJAX.
-                    const dishId = this.getAttribute('data-food-id');
-                    
-                    // Mockup: Puxa o conteúdo do primeiro prato para simular detalhes
-                    const modalTitle = document.getElementById('modal-dish-title');
-                    const modalDescription = document.getElementById('modal-dish-full-description');
-                    const modalImage = document.getElementById('modal-dish-image');
-
-                    // Usando o conteúdo da Pupusa para o mockup de detalhes
-                    modalTitle.textContent = contentData[currentLang][`${dishId}_title`] || "Detalhes do Prato";
-                    modalDescription.innerHTML = contentData[currentLang][`dish1_description`] + "<br><br>" + contentData[currentLang][`dish1_ingredients_title`] + ": " + contentData[currentLang][`dish1_ingredients_list`];
-                    modalImage.src = document.getElementById(`dish-image-1`).src; 
-
-                    toggleModal('food-details-modal', true);
-                });
-            });
-
-            // 10. Logs no Console (A sua assinatura)
-            console.log('%c🇸🇻 El Salvador - Projeto CMS (Versão Completa)', 
-                'background: linear-gradient(135deg, #5AC8FA, #007AFF); color: white; padding: 12px 24px; border-radius: 8px; font-size: 18px; font-weight: bold;');
-            console.log('%c✨ Design Dark Theme - Animações Apple iOS - Firebase Integration (Mockup)', 
-                'color: #8B7355; font-size: 18px; font-weight: 600;');
-            console.log('%c🍟 Pupusas - Yuca Frita - Horchata (Sabores Nacionais) 🍟', 
-                'background: linear-gradient(135deg, #FFD60A, #8B7355); color: #0A0A0A; padding: 12px 24px; border-radius: 8px; font-size: 16px; font-weight: bold;');
-            console.log('%c❤️ Desenvolvido com dedicação para o projeto escolar', 
-                'color: #FF453A; font-size: 14px;');
-
         });
     </script>
-    </body>
+</body>
 </html>
